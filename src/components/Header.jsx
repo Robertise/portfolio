@@ -8,11 +8,12 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(true); 
 
   const navItems = [
-    { id: 1, name: "Home", href: "#" },
-    { id: 2, name: "Products", href: "#" },
-    { id: 3, name: "Categories", href: "#" },
-    { id: 4, name: "About", href: "#" },
-    { id: 5, name: "Contact", href: "#" }
+    { id: 1, name: "About", href: "#" },
+    { id: 2, name: "Skills", href: "#" },
+    { id: 3, name: "Projects", href: "#" },
+    { id: 4, name: "Education", href: "#" },
+    { id: 5, name: "Certifications", href: "#" },
+    { id: 6, name: "Contact", href: "#" }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen); 
@@ -23,7 +24,7 @@ const Header = () => {
   }, [isDarkMode]);
 
   return (
-    <header className={`fixed w-full top-0 z-50 ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-800"} shadow-md transition-colors duration-300`}>
+    <header className={`fixed w-full top-0 z-50 shadow-sm shadow-gray-800 ${isDarkMode ? "bg-[var(--background-dark)] text-white" : "bg-white text-gray-800"} transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
