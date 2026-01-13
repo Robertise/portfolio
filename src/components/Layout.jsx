@@ -1,10 +1,9 @@
-import { Outlet } from 'react-router-dom' 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from 'react';
 import Background from "../components/Background";
 import Header from './Header';
 import Intro from './Intro';
-
+import Home from '../pages/Home';
 
 const Layout = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -25,7 +24,7 @@ const Layout = () => {
       <Header />
       
       {/* Main Content */}
-      <Outlet/>  
+      <Home />  
 
       {/* Intro overlay - fades out after animation */}
       <AnimatePresence>

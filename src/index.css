@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Space Grotesk", system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,4 +16,29 @@
   --terminal-bg: #10141b;
   --terminal-header: #161b22;
   --accent-cyan: #2f81f7;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
+}
+
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d6e1ec25;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0c6e07a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

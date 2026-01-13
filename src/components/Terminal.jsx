@@ -2,16 +2,16 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Terminal() {
   return (
-    <div className="flex justify-center p-4 mt-20">
-      <div className="w-full max-w-[1000px] bg-[var(--terminal-bg)] rounded-lg overflow-hidden shadow-2xl flex flex-col border border-gray-700">
+    <div className="flex justify-center p-4 mt-20" style={{ scrollPaddingTop: "100px"}}>
+      <div className="w-full max-w-300 bg-(--terminal-bg) rounded-lg overflow-hidden shadow-2xl flex flex-col border border-gray-700">
         {/* Terminal Header */}
-        <div className="bg-[var(--terminal-header)] px-4 py-2 flex items-center border-b border-gray-700">
+        <div className="bg-(--terminal-header) px-4 py-2 flex items-center border-b border-gray-700">
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
             <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
           </div>
-          <div className="flex-1 text-center pr-[60px] text-gray-500 text-sm font-mono">
+          <div className="flex-1 text-center pr-15 text-gray-500 text-sm font-mono">
             user@portfolio: ~
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Terminal() {
         </div>
 
         {/* Terminal Footer */}
-        <div className="bg-[var(--terminal-header)] px-4 py-2 flex items-center border-t border-gray-700">
+        <div className="bg-(--terminal-header) px-4 py-2 flex items-center border-t border-gray-700">
           <div className="flex gap-2 items-center"> 
             <div className="w-2 h-2 rounded-full bg-[#1ca530] mr-1"></div>
             <div className="text-sm text-gray-500">Status: Online <span className="px-2.5">|</span> Branch: main</div>

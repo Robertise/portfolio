@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { IoMoonSharp, IoSunnySharp } from "react-icons/io5";
-import signatureLight from "../assets/signatureLight.svg";
-import signatureDark from "../assets/signatureDark.svg";
+import { IoMoonSharp, IoSunnySharp } from "react-icons/io5"; 
+import { AiOutlineDownload } from "react-icons/ai";
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const [isDarkMode, setIsDarkMode] = useState(true); 
 
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+    window.history.pushState({}, "", `/#${id}`);
+  };
+
   const navItems = [
-    { id: 1, name: "About", href: "#" },
-    { id: 2, name: "Skills", href: "#" },
-    { id: 3, name: "Projects", href: "#" },
-    { id: 4, name: "Education", href: "#" },
-    { id: 5, name: "Certifications", href: "#" },
-    { id: 6, name: "Contact", href: "#" }
+    { id: 1, name: "About" },
+    { id: 2, name: "Skills" },
+    { id: 3, name: "Projects" },
+    { id: 4, name: "Education" },
+    { id: 5, name: "Certifications" },
+    { id: 6, name: "Contact" }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen); 
@@ -26,12 +32,15 @@ const Header = () => {
   }, [isDarkMode]);
 
   return (
-    <header className={`fixed w-full top-0 z-50 shadow-sm shadow-gray-800 ${isDarkMode ? "bg-[var(--background-dark)] text-white" : "bg-white text-gray-800"} transition-colors duration-300`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className={`fixed w-full top-0 z-50 shadow-sm shadow-gray-800 ${isDarkMode ? "bg-(--background-dark) text-white" : "bg-white text-gray-800"} transition-colors duration-300`}>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0"> 
+          <div 
+            className="shrink-0 cursor-pointer" 
+            onClick={() => scrollTo("home")}
+          >
             <svg 
-              className="h-11 w-auto" 
+              className="h-11 w-auto mr-12" 
               viewBox="0 0 554 335" 
               fill={isDarkMode ? "white" : "black"}
               stroke={isDarkMode ? "white" : "black"}
@@ -41,11 +50,12 @@ const Header = () => {
             </svg>
           </div>
 
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8 cursor-pointer">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
+                onClick={() => scrollTo("" + item.name.toLowerCase())}
                 className="text-sm font-medium hover:text-blue-500 transition-colors duration-200"
               >
                 {item.name}
@@ -53,17 +63,20 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <button
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="p-2 rounded-full mr-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
               onClick={toggleDarkMode}
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? <IoMoonSharp className="h-5 w-5" /> : <IoSunnySharp className="h-5 w-5" />}
             </button> 
+            <button className="bg-blue-600 text-white text-sm pr-5 pl-4 py-1.5 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+              <AiOutlineDownload className="mr-1" /> Resume
+            </button> 
 
             <button
-              className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="lg:hidden ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -77,7 +90,7 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <a
