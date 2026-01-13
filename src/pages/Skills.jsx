@@ -24,10 +24,11 @@ const Skills = () => {
     <section className="py-16 px-4">
       <div className="max-w-300 mx-auto">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-4xl font-bold text-white">
+          <h2 className="text-4xl font-bold text-white whitespace-nowrap">
             <span className="text-gray-500">01.</span> SKILLS
           </h2>
-          <span className="text-sm text-gray-500 uppercase tracking-wider">
+          <div className="flex-1 h-px mx-5 bg-gray-800"></div>
+          <span className="text-sm text-gray-500 uppercase tracking-wider whitespace-nowrap">
             // Tech Stack & Tools
           </span>
         </div>

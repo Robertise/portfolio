@@ -30,9 +30,10 @@ const Projects = () => {
     <section className="py-16 px-4">
       <div className="max-w-300 mx-auto">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-4xl font-bold text-white">
+          <h2 className="text-4xl font-semibold text-white">
             <span className="text-gray-500">02.</span> PROJECTS
           </h2>
+          <div className="flex-1 h-px mx-5 bg-gray-800"></div>
           <span className="text-sm text-gray-500 uppercase tracking-wider">
             // Case Studies
           </span>
