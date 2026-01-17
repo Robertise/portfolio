@@ -2,7 +2,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Terminal() {
   return (
-    <div className="flex justify-center p-4 mt-20" style={{ scrollPaddingTop: "100px"}}>
+    <div className="flex justify-center p-4 pb-16 mt-20" style={{ scrollPaddingTop: "100px"}}>
       <div className="w-full max-w-300 bg-(--terminal-bg) rounded-lg overflow-hidden shadow-2xl flex flex-col border border-gray-700">
         {/* Terminal Header */}
         <div className="bg-(--terminal-header) px-4 py-2 flex items-center border-b border-gray-700">

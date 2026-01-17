@@ -1,6 +1,7 @@
 import Terminal from "../components/Terminal"; 
 import Projects from "./Projects";
 import Skills from "./Skills";
+import About from "./About";
 
 
 const Home = () => {
@@ -8,6 +9,10 @@ const Home = () => {
     <div className="relative z-10">
       <section id="home" className="scroll-mt-25">
         <Terminal />
+      </section>
+
+      <section id="about">
+        <About />
       </section>
 
       <section id="skills">
