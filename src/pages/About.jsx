@@ -21,7 +21,7 @@ const About = () => {
       <div className="max-w-300 mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap">
-            <span className="text-gray-500">01.</span> ABOUT
+            <span className="text-gray-500">01.</span> ABOUT ME
           </h2>
           <div className="flex-1 h-px mx-5 bg-gray-800"></div>
           <span className="text-sm text-gray-500 uppercase tracking-wider whitespace-nowrap">
@@ -96,8 +96,28 @@ const About = () => {
             </div>
           )}
           {activeTab === "academic" && (
-            <div className="text-gray-300 space-y-4">
-              <p>academic content goes here...</p>
+            <div className="text-gray-300 space-y-4"> 
+                <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap mb-2">
+                  Why choosing AI?
+                </h2> 
+                <p className="mt-4">
+                  I chose AI because I'm fascinated by systems that can improve themselves, machines that don't just execute instructions but learn from experience. The field sits at this intersection of mathematics, engineering, and philosophy that feels endlessly explorable.
+                </p>
+                <h2 className="text-1xl md:text-2xl font-semibold text-gray-400 whitespace-nowrap mb-5">
+                  Core <span className="text-blue-400">Interests</span>
+                </h2>
+                <div className="border-l pl-5">
+                  <p className="text-white font-medium">Deep Learning & Neural Architecture</p>
+                  <p>How model design choices affect learning dynamics. Currently exploring attention mechanisms and their applications beyond NLP.</p>
+                </div>
+                <div className="border-l pl-5">
+                  <p className="text-white font-medium">Reinforcement Learning</p>
+                  <p>The challenge of getting agents to learn optimal behavior through trial and error. Working on understanding exploration-exploitation tradeoffs.</p>
+                </div>
+                <div className="border-l pl-5">
+                  <p className="text-white font-medium">Applied ML Systems</p>
+                  <p>Bridging the gap between research and production. Interested in model optimization, deployment, and building reliable ML pipelines.</p>
+                </div>
             </div>
           )}  
           {activeTab === "skills" && (
