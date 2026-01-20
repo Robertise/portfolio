@@ -1,6 +1,9 @@
 import { useState } from "react"; 
 import { LuBrain, LuUser, LuLightbulb, LuBookOpen, LuImage } from "react-icons/lu";
 import { FaAward, FaRocket } from "react-icons/fa6";
+import { TbTools } from "react-icons/tb";
+import { PiStrategyBold } from "react-icons/pi";
+import { BiErrorAlt, BiBookBookmark } from "react-icons/bi";
 import Gallery from "../components/Gallery";
 import profileImage from '../assets/DoGiaHuy.png';
 
@@ -95,6 +98,7 @@ const About = () => {
               </div>
             </div>
           )}
+
           {activeTab === "academic" && (
             <div className="text-gray-300 space-y-4"> 
                 <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap mb-2">
@@ -106,23 +110,47 @@ const About = () => {
                 <h2 className="text-1xl md:text-2xl font-semibold text-gray-400 whitespace-nowrap mb-5">
                   Core <span className="text-blue-400">Interests</span>
                 </h2>
-                <div className="border-l pl-5">
+                <div className="border-l pl-5 py-2 mb-5">
                   <p className="text-white font-medium">Deep Learning & Neural Architecture</p>
                   <p>How model design choices affect learning dynamics. Currently exploring attention mechanisms and their applications beyond NLP.</p>
                 </div>
-                <div className="border-l pl-5">
+                <div className="border-l pl-5 py-2 mb-5">
                   <p className="text-white font-medium">Reinforcement Learning</p>
                   <p>The challenge of getting agents to learn optimal behavior through trial and error. Working on understanding exploration-exploitation tradeoffs.</p>
                 </div>
-                <div className="border-l pl-5">
+                <div className="border-l pl-5 py-2">
                   <p className="text-white font-medium">Applied ML Systems</p>
                   <p>Bridging the gap between research and production. Interested in model optimization, deployment, and building reliable ML pipelines.</p>
                 </div>
             </div>
           )}  
+
           {activeTab === "skills" && (
-            <div className="text-gray-300 space-y-4">
-              <p>skills & mindset content goes here...</p>
+            <div className="text-gray-300 space-y-4"> 
+                <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap mb-2">
+                  How I Think & Work?
+                </h2> 
+                <p className="mt-4 mb-7">
+                  I value understanding over memorization. When I learn something new, I prefer to implement it from scratch first, even if it's slower - because that's where the real learning happens.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg p-6 hover:border-blue-500/50 transition-colors">
+                    <h5 className="mb-3 text-xl flex items-center text-white font-semibold"><BiErrorAlt className="mr-2 text-blue-400"/>Problem-Solving Approach</h5>
+                    <p>I decompose complex problems into testable prototypes, iterating based on data and treating setbacks as insights rather than failures.</p>
+                  </div> 
+                  <div className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg p-6 hover:border-blue-500/50 transition-colors">
+                    <h5 className="mb-3 text-xl flex items-center text-white font-semibold"><BiBookBookmark className="mr-2 text-blue-400"/>Learning Philosophy</h5>
+                    <p>I learn best through action; while reading provides direction, coding and experimenting solidify concepts. I use a technical journal to document results and clarify trade-offs.</p>
+                  </div> 
+                  <div className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg p-6 hover:border-blue-500/50 transition-colors">
+                    <h5 className="mb-3 text-xl flex items-center text-white font-semibold"><PiStrategyBold className="mr-2 text-blue-400"/>Data Strategy</h5>
+                    <p>Treating raw data as the primary source of truth. Implementing robust pipelines for data integrity and insight.</p>
+                  </div> 
+                  <div className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg p-6 hover:border-blue-500/50 transition-colors">
+                    <h5 className="mb-3 text-xl flex items-center text-white font-semibold"><TbTools className="mr-2 text-blue-400"/>Technical Toolkit</h5>
+                    <p>I prioritize solving problems effectively over collecting tools, using Python (PyTorch, scikit-learn, NumPy), Git, and cloud platforms as means to that end.</p>
+                  </div> 
+                </div>
             </div>
           )}
           {activeTab === "personal" && (
