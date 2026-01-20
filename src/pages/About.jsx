@@ -110,15 +110,15 @@ const About = () => {
                 <h2 className="text-1xl md:text-2xl font-semibold text-gray-400 whitespace-nowrap mb-5">
                   Core <span className="text-blue-400">Interests</span>
                 </h2>
-                <div className="border-l pl-5 py-2 mb-5">
+                <div className="border-l-2 pl-5 py-2 mb-5 border-blue-400">
                   <p className="text-white font-medium">Deep Learning & Neural Architecture</p>
                   <p>How model design choices affect learning dynamics. Currently exploring attention mechanisms and their applications beyond NLP.</p>
                 </div>
-                <div className="border-l pl-5 py-2 mb-5">
+                <div className="border-l-2 pl-5 py-2 mb-5 border-blue-400">
                   <p className="text-white font-medium">Reinforcement Learning</p>
                   <p>The challenge of getting agents to learn optimal behavior through trial and error. Working on understanding exploration-exploitation tradeoffs.</p>
                 </div>
-                <div className="border-l pl-5 py-2">
+                <div className="border-l-2 pl-5 py-2 border-blue-400">
                   <p className="text-white font-medium">Applied ML Systems</p>
                   <p>Bridging the gap between research and production. Interested in model optimization, deployment, and building reliable ML pipelines.</p>
                 </div>
@@ -153,6 +153,7 @@ const About = () => {
                 </div>
             </div>
           )}
+
           {activeTab === "personal" && (
             <div>  
               <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap mb-5">
@@ -164,6 +165,7 @@ const About = () => {
                 </p>
             </div>
           )}
+
           {activeTab === "gallery" && (
             <div className="text-gray-300 space-y-4">
               <Gallery />
