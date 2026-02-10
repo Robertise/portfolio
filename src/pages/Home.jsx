@@ -3,7 +3,6 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import About from "./About";
 
-
 const Home = () => {
   return (
     <div className="relative z-10">
