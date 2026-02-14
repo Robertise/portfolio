@@ -1,6 +1,5 @@
 import { LuCode, LuExternalLink } from "react-icons/lu";
 
-
 const Projects = () => {
   const projects = [
     {
