@@ -26,71 +26,91 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-300 mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
-            <span className="text-gray-500">03.</span> PROJECTS
+    <section className="py-20 md:py-28 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-16 gap-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-(--text-primary) flex items-center gap-3">
+            <span className="text-(--text-secondary)">03.</span> PROJECTS
           </h2>
-          <div className="flex-1 h-px mx-5 bg-gray-800"></div>
-          <span className="text-sm text-gray-500 uppercase tracking-wider">
+          <div className="hidden sm:flex flex-1 h-px bg-linear-to-r from-(--accent) to-transparent"></div>
+          <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
             // Case Studies
           </span>
         </div>
 
-        <div className="space-y-8">
+        {/* Projects List */}
+        <div className="space-y-8 md:space-y-12">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg overflow-hidden hover:border-blue-500/50 transition-colors"
+              className="bg-(--bg-secondary) border border-(--border-color) rounded-xl overflow-hidden hover:border-(--accent) hover:shadow-lg transition-all duration-300"
             >
-              <div className="grid md:grid-cols-5 gap-6 p-6">
-                <div className="md:col-span-2">
+              <div className="grid md:grid-cols-5 gap-6 md:gap-8 p-6 md:p-8">
+                
+                {/* Project Image */}
+                <div className="md:col-span-2 rounded-lg overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
-                <div className="md:col-span-3 space-y-4">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-2xl font-semibold text-white">
+                {/* Project Details */}
+                <div className="md:col-span-3 flex flex-col justify-between space-y-5">
+                  
+                  {/* Title & Actions */}
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-2xl md:text-3xl font-bold text-(--text-primary) flex-1">
                       {project.title}
                     </h3>
-                    <div className="flex gap-2">
-                      <button className="p-2 text-gray-400 hover:text-blue-500 transition-colors">
+                    <div className="flex gap-3 shrink-0">
+                      <button 
+                        className="p-2 rounded-lg text-(--text-secondary) hover:text-(--accent) hover:bg-(--hover-bg) transition-all duration-200"
+                        title="View code"
+                      >
                         <LuCode className="w-5 h-5" />
                       </button>
-                      <button className="p-2 text-gray-400 hover:text-blue-500 transition-colors">
+                      <button 
+                        className="p-2 rounded-lg text-(--text-secondary) hover:text-(--accent) hover:bg-(--hover-bg) transition-all duration-200"
+                        title="Visit project"
+                      >
                         <LuExternalLink className="w-5 h-5" />
                       </button>
                     </div>
                   </div>
 
+                  {/* Divider */}
+                  <div className="h-px bg-(--border-color)"></div>
+
+                  {/* Problem */}
                   <div>
-                    <h4 className="text-xs font-semibold text-blue-500 uppercase tracking-wider mb-2">
+                    <h4 className="text-xs md:text-sm font-bold text-(--accent) uppercase tracking-widest mb-2">
                       Problem
                     </h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
                       {project.problem}
                     </p>
                   </div>
 
+                  {/* Solution */}
                   <div>
-                    <h4 className="text-xs font-semibold text-blue-500 uppercase tracking-wider mb-2">
+                    <h4 className="text-xs md:text-sm font-bold text-(--accent) uppercase tracking-widest mb-2">
                       Solution
                     </h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed">
                       {project.solution}
                     </p>
                   </div>
 
+                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-3 py-1 bg-[#0a0e27] text-blue-400 text-xs rounded border border-[#2a2f4a]"
+                        className="px-3 py-1.5 bg-(--bg-primary) text-(--accent) text-xs md:text-sm font-medium rounded-lg border border-(--border-color) hover:border-(--accent) transition-all duration-200"
                       >
                         {tag}
                       </span>

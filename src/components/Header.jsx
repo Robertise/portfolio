@@ -1,82 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoMoonSharp, IoSunnySharp } from "react-icons/io5"; 
 import { AiOutlineDownload } from "react-icons/ai";
-
+import { useTheme } from "../hooks/useTheme";
+import { NAV_ITEMS } from "../config/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const [isDarkMode, setIsDarkMode] = useState(true); 
+  const { isDark, toggleTheme } = useTheme();
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-    });
-    window.history.pushState({}, "", `/#${id}`);
+  const scrollTo = (target) => {
+    const element = document.getElementById(target);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      window.history.pushState({}, "", `/#${target}`);
+    }
   };
 
-  const navItems = [
-    { id: 1, name: "About" },
-    { id: 2, name: "Skills" },
-    { id: 3, name: "Projects" },
-    { id: 4, name: "Education" },
-    { id: 5, name: "Certifications" },
-    { id: 6, name: "Contact" }
-  ];
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen); 
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
-
-  useEffect(() => {
-    document.body.className = isDarkMode ? "dark" : "light";
-  }, [isDarkMode]);
 
   return (
-    <header className={`fixed w-full top-0 z-50 shadow-sm shadow-gray-800 ${isDarkMode ? "bg-(--background-dark) text-white" : "bg-white text-gray-800"} transition-colors duration-300`}>
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed w-full top-0 z-50 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] shadow-sm transition-colors duration-300">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 gap-4">
+          {/* Logo */}
           <div 
-            className="shrink-0 cursor-pointer" 
+            className="shrink-0 cursor-pointer hover:opacity-80 transition-opacity" 
             onClick={() => scrollTo("home")}
+            title="Back to home"
           >
             <svg 
-              className="h-11 w-auto mr-12" 
+              className="h-10 w-auto" 
               viewBox="0 0 554 335" 
-              fill={isDarkMode ? "white" : "black"}
-              stroke={isDarkMode ? "white" : "black"}
+              fill="currentColor"
+              stroke="currentColor"
               strokeWidth="4"  
             >
               <path d="m541.75 11.04c0.69-0.02 1.27 0.52 1.29 1.21 0.02 0.69-6.62 4.03-14.75 7.42-8.14 3.39-21.09 8.99-28.79 12.43-7.7 3.44-23 10.83-34 16.42-11 5.59-26.07 13.7-33.5 18.02-7.43 4.33-27.23 17.12-44 28.42-16.77 11.31-35.9 24.87-42.5 30.14-6.6 5.26-18.3 15.2-26 22.08-7.7 6.87-19.85 18.58-27 26.02-7.15 7.43-14.19 15.26-15.64 17.4-2.26 3.35-3.21 7.43-6.72 28.9-2.25 13.75-5.21 34-6.59 45-1.38 11-3.21 26.98-4.06 35.5-0.86 8.52-1.77 15.73-2.02 16-0.25 0.27-1.13 0.16-1.96-0.25-1.23-0.61-1.41-2.19-0.95-8.5 0.31-4.26 1.67-17.43 3.02-29.25 1.35-11.82 4.07-31.85 6.05-44.5 1.98-12.65 3.81-25.03 4.56-32l-3.99 4.5c-3.18 3.58-4.56 6.45-6.73 14-1.52 5.29-8.05 21.03-14.74 35.5-6.6 14.3-13.81 29.6-16.01 34-2.2 4.4-7.99 13.96-12.86 21.25-4.87 7.29-9.54 13.48-10.36 13.75-0.82 0.27-2.2-0.06-3.04-0.75-0.92-0.74-1.53-2.78-1.5-5 0.02-2.06 1.44-7.91 3.15-13 1.71-5.09 4.41-12.51 6-16.5 1.59-3.99 6.04-13.55 9.89-21.25 3.85-7.7 12.45-22.21 19.11-32.25 6.67-10.04 13.65-20.05 15.53-22.25 1.9-2.24 4.1-6.43 4.98-9.5 0.87-3.03 2.29-9.32 3.15-14 1-5.34 1.58-14.07 1.58-23.5 0-10.71-0.51-17.29-1.78-23-0.97-4.4-3.4-11.15-5.39-15-2.24-4.35-6.08-9.48-10.14-13.54-4.04-4.04-9.21-7.92-13.54-10.15-3.85-2-9.93-4.58-13.5-5.74-3.57-1.16-11-2.96-16.5-4-5.5-1.04-16.53-2.45-24.5-3.13-9.1-0.78-21.02-1.01-32-0.62-9.63 0.34-23.58 1.53-31 2.63-7.42 1.11-21.6 4.03-31.5 6.48-9.9 2.46-21.83 5.79-26.5 7.4-4.67 1.61-12.1 4.37-16.5 6.12-4.4 1.75-13.85 6.1-21 9.66-8.69 4.32-13.33 6.14-14 5.47-0.55-0.56-0.73-1.59-0.41-2.29 0.33-0.71 6.63-4.29 14-7.96 7.38-3.67 17.68-8.32 22.91-10.34 5.23-2.03 12.88-4.79 17-6.13 4.13-1.35 14.7-4.26 23.5-6.47 8.8-2.21 21.85-4.93 29-6.04 7.15-1.11 20.2-2.35 29-2.74 8.8-0.4 22.75-0.37 31 0.07 8.25 0.44 18.6 1.27 23 1.86 4.4 0.59 12.5 2.18 18 3.54 5.5 1.35 14.05 4.39 19 6.76 6.62 3.16 10.95 6.12 16.37 11.22 4.15 3.91 9.03 9.78 11.19 13.44 2.11 3.58 4.8 9.88 6 14 1.62 5.62 2.29 11.25 2.67 22.5 0.36 10.88 0.05 18.16-1.13 26.5-0.9 6.32-1.52 11.61-1.37 11.75 0.15 0.14 1.65-1.44 3.33-3.5 2.72-3.34 3.51-6.03 7.29-24.75 2.32-11.55 6.92-32.25 10.2-46 3.29-13.75 6.57-27.25 7.28-30 0.85-3.28 1.88-5.09 2.99-5.25 1.39-0.21 1.62 0.47 1.34 4-0.19 2.34-2.91 14.82-6.05 27.75-3.14 12.93-7.49 31.82-9.68 42-2.18 10.18-3.73 18.72-3.44 19 0.3 0.28 8.74-7.68 18.77-17.68 10.03-9.99 22.06-21.43 26.74-25.42 4.68-3.99 13.68-11.37 20-16.41 6.32-5.03 25.9-18.86 43.5-30.71 17.6-11.86 40.1-26.13 50-31.71 9.9-5.57 25.88-14.01 35.5-18.74 9.63-4.73 23.13-11.08 30-14.11 6.88-3.03 18.35-7.89 25.5-10.82 7.15-2.92 13.56-5.33 14.25-5.36zm-318.28 255.96c-4.52 8.52-10.57 21.8-13.45 29.5-2.88 7.7-5.48 15.57-5.76 17.5q-0.52 3.49 0.48 2.5c0.54-0.55 3.83-5.27 7.3-10.5 3.47-5.23 8.66-14.23 11.54-20 2.88-5.77 9.93-20.63 15.67-33 5.74-12.38 10.88-24.22 11.42-26.32 0.54-2.1 0.91-4.04 0.83-4.32-0.08-0.27-4.58 6.17-9.99 14.32-5.41 8.15-13.53 21.8-18.04 30.32zm126.37-88.02c0.91-0.01 2.23 0.56 2.93 1.25 0.91 0.91 1.25 5.35 1.17 30.27l3.03-4.25c1.67-2.34 6.12-7.51 9.89-11.5 3.77-3.99 9.73-9.15 13.25-11.48 3.51-2.33 7.18-4.24 8.14-4.25 0.96-0.01 1.97 0.43 2.25 0.98 0.27 0.55-3.19 3.59-7.71 6.75-4.86 3.41-11.08 9.06-15.25 13.87-3.87 4.47-8.49 10.55-10.26 13.5-3.07 5.13-3.26 6.09-4.26 20.88-0.63 9.28-2.08 20.11-3.62 27-1.42 6.32-3.43 13.41-4.49 15.75-1.49 3.32-2.39 4.2-4.1 4-1.57-0.18-2.45-1.24-3.12-3.75-0.5-1.93-0.67-8.68-0.37-15 0.32-6.76 1.42-14.8 2.65-19.5 1.16-4.4 3.62-11.82 5.48-16.5 3.14-7.94 3.41-9.5 3.93-23.5 0.31-8.25 0.24-15.53-0.16-16.19-0.46-0.76-2.34 1-5.22 4.9-2.48 3.35-7.09 8.49-10.25 11.44-4.3 4-6.51 5.35-8.75 5.35-1.87 0-3.94-0.94-5.5-2.5-1.38-1.38-3-4.64-4.71-12l-5.15 5.24c-3.16 3.22-6.01 5.24-7.39 5.25-1.39 0.01-2.89-1.04-5.6-5.49l-4.59 6c-3.42 4.48-5.21 6-7.06 6-1.68 0-2.6-0.64-2.86-2-0.21-1.1 0.46-6.68 1.49-12.39 1.05-5.85 2.43-10.66 3.16-11 0.7-0.34 1.72-0.16 2.25 0.39 0.63 0.65 0.47 3.47-0.45 8-0.79 3.85-1.24 7.34-1.01 7.75 0.23 0.41 2.44-1.95 4.92-5.25 2.47-3.3 4.84-6.01 5.25-6.02 0.41-0.01 1.32 0.56 2.02 1.25 0.69 0.7 1.26 2.17 1.26 3.27 0 1.1 0.45 2.68 1.01 3.5 0.82 1.23 2.05 0.34 6.73-4.86 4.03-4.46 6.31-6.25 7.68-6 1.53 0.28 2.25 1.78 3.28 6.86 0.72 3.57 2.09 7.31 3.04 8.31 1.66 1.74 1.9 1.68 6.23-1.54 2.47-1.84 7.8-7.72 11.84-13.06 4.05-5.35 8.09-9.72 9-9.73zm-6.17 69.02c-0.87 4.13-1.71 10.54-1.87 14.25-0.17 3.71 0.04 6.75 0.45 6.75 0.41 0 1.18-1.46 1.71-3.25 0.52-1.79 1.61-7.07 2.42-11.75 0.81-4.68 1.64-10.64 1.84-13.25 0.2-2.61 0-4.75-0.45-4.75-0.44 0-1.2 1.01-1.67 2.25-0.47 1.24-1.57 5.63-2.43 9.75z" /> 
             </svg>
           </div>
 
-          <nav className="hidden lg:flex space-x-8 cursor-pointer">
-            {navItems.map((item) => (
-              <a
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1 flex-1 ml-8">
+            {NAV_ITEMS.map((item) => (
+              <button
                 key={item.id}
-                href={item.href}
-                onClick={() => scrollTo("" + item.name.toLowerCase())}
-                className="text-sm font-medium hover:text-blue-500 transition-colors duration-200"
+                onClick={() => scrollTo(item.target)}
+                className="px-3 py-2 text-sm font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors duration-200 hover:bg-[var(--hover-bg)] rounded-md"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </nav>
 
-          <div className="flex items-center">
+          {/* Actions */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Theme Toggle */}
             <button
-              className="p-2 rounded-full mr-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
+              className="p-2 rounded-lg hover:bg-[var(--hover-bg)] transition-colors duration-200 text-[var(--text-primary)]"
+              onClick={toggleTheme}
+              aria-label="Toggle dark/light mode"
+              title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {isDarkMode ? <IoMoonSharp className="h-5 w-5" /> : <IoSunnySharp className="h-5 w-5" />}
-            </button> 
-            <button className="bg-blue-600 text-white text-sm pr-5 pl-4 py-1.5 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center">
-              <AiOutlineDownload className="mr-1" /> Resume
-            </button> 
+              {isDark ? (
+                <IoSunnySharp className="h-5 w-5" />
+              ) : (
+                <IoMoonSharp className="h-5 w-5" />
+              )}
+            </button>
 
+            {/* Resume Button */}
+            <button className="hidden sm:flex bg-[var(--primary)] text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
+              <AiOutlineDownload className="h-4 w-4" />
+              <span>Resume</span>
+            </button>
+
+            {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover-bg)] transition-colors duration-200 text-[var(--text-primary)]"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -89,18 +93,26 @@ const Header = () => {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <a
+          <div className="lg:hidden border-t border-[var(--border-color)] bg-[var(--bg-primary)] animate-in fade-in duration-200">
+            <div className="px-2 py-3 space-y-1">
+              {NAV_ITEMS.map((item) => (
+                <button
                   key={item.id}
-                  href={item.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  onClick={() => {
+                    scrollTo(item.target);
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:bg-[var(--hover-bg)] transition-colors duration-200"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
+              <button className="w-full mt-2 bg-[var(--primary)] text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2">
+                <AiOutlineDownload className="h-4 w-4" />
+                <span>Resume</span>
+              </button>
             </div>
           </div>
         )}

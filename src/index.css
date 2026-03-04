@@ -1,47 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  font-family: "Space Grotesk", system-ui, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--background-dark);
-
-
+/* 
+  ============================================
+    THEME VARIABLES - LIGHT MODE
+  ============================================ 
+*/
+:root,
+[data-theme="light"] {
+  --bg-primary: #f6f6f8;
+  --bg-secondary: #ffffff;
+  --text-primary: #111422;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --hover-bg: #f3f4f6;
   --primary: #1337ec;
+  --accent: #2f81f7;
+
+  /* Legacy variables for backward compatibility */
   --background-light: #f6f6f8;
+  --terminal-bg: #f0f0f5;
+  --terminal-header: #e5e5eb;
+
+  color-scheme: light;
+}
+
+/* 
+  ============================================
+    THEME VARIABLES - DARK MODE
+  ============================================ 
+*/
+[data-theme="dark"],
+body.dark {
+  --bg-primary: #111422;
+  --bg-secondary: #1a1f2e;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+  --hover-bg: #1f2937;
+  --primary: #1337ec;
+  --accent: #2f81f7;
+
+  /* Legacy variables for backward compatibility */
   --background-dark: #111422;
   --terminal-bg: #10141b;
   --terminal-header: #161b22;
   --accent-cyan: #2f81f7;
+
+  color-scheme: dark;
 }
 
+/* 
+  ============================================
+    GLOBAL STYLES
+  ============================================ 
+*/
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 50px;
+  scroll-padding-top: 64px;
 }
 
-color {
-  color: #223bb698;
+body {
+  font-family: "Space Grotesk", system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar styles */
+/* 
+  ============================================
+    CUSTOM SCROLLBAR
+  ============================================ 
+*/
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #d6e1ec25;
+  background: var(--bg-primary);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b0c6e07a;
+  background: var(--text-secondary);
   border-radius: 10px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  opacity: 0.8;
 }

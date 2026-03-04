@@ -1,55 +1,60 @@
 import { LuBrain, LuCode, LuWrench } from "react-icons/lu";
 
-
 const Skills = () => {
   const skillCategories = [
     {
-      icon: <LuBrain className="w-5 h-5 text-blue-500" />,
+      icon: <LuBrain className="w-6 h-6 text-(--accent)" />,
       title: "Machine Learning",
       skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "OpenCV"]
     },
     {
-      icon: <LuCode className="w-5 h-5 text-blue-500" />,
+      icon: <LuCode className="w-6 h-6 text-(--accent)" />,
       title: "Languages",
       skills: ["Python", "C++", "SQL", "JavaScript"]
     },
     {
-      icon: <LuWrench className="w-5 h-5 text-blue-500" />,
+      icon: <LuWrench className="w-6 h-6 text-(--accent)" />,
       title: "Tools & Cloud",
       skills: ["Git & GitHub", "Docker", "AWS (EC2, S3)", "Jupyter"]
     }
   ];
 
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-300 mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white whitespace-nowrap">
-            <span className="text-gray-500">02.</span> SKILLS
+    <section className="py-20 md:py-28 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-16 gap-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-(--text-primary) whitespace-nowrap flex items-center gap-3">
+            <span className="text-(--text-secondary)">02.</span> SKILLS
           </h2>
-          <div className="flex-1 h-px mx-5 bg-gray-800"></div>
-          <span className="text-sm text-gray-500 uppercase tracking-wider whitespace-nowrap">
+          <div className="hidden sm:flex flex-1 h-px bg-gradient-to-r from-(--accent) to-transparent"></div>
+          <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
             // Tech Stack & Tools
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="bg-[#1a1f3a] border border-[#2a2f4a] rounded-lg p-6 hover:border-blue-500/50 transition-colors"
+              className="bg-(--bg-secondary) border border-(--border-color) rounded-xl p-6 md:p-8 hover:border-(--accent) hover:shadow-lg transition-all duration-300"
             >
-              <div className="flex items-center gap-3 mb-4">
-                {category.icon}
-                <h3 className="text-xl font-semibold text-white">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-2 rounded-lg bg-(--hover-bg)">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-(--text-primary)">
                   {category.title}
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-2">
+              
+              <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="px-3 py-1 bg-[#0a0e27] text-gray-300 text-sm rounded border border-[#2a2f4a] hover:border-blue-500/50 transition-colors"
+                    className="px-4 py-2 bg-(--bg-primary) text-(--text-secondary) text-sm font-medium rounded-lg border border-(--border-color) hover:border-(--accent) hover:text-(--accent) transition-all duration-200"
                   >
                     {skill}
                   </span>

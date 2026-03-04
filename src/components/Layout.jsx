@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from 'react';
+import { ThemeProvider } from "../contexts/ThemeContext";
 import Background from "../components/Background";
 import Header from './Header';
 import Intro from './Intro';
 import Home from '../pages/Home';
 
-const Layout = () => {
+const LayoutContent = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   const handleAnimationComplete = () => { 
@@ -14,9 +15,8 @@ const Layout = () => {
     }, 500);
   };
 
-
   return (
-    <div className="relative min-h-screen bg-[#111422]">   
+    <div className="relative min-h-screen bg-(--bg-primary) transition-colors duration-300">   
       {/* Background */}
       <Background />
 
@@ -42,7 +42,7 @@ const Layout = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              background: "var(--background-dark)",
+              background: "var(--bg-primary)",
               zIndex: 9999,
             }}
           >
@@ -51,6 +51,14 @@ const Layout = () => {
         )}
       </AnimatePresence>
     </div>
+  );
+};
+
+const Layout = () => {
+  return (
+    <ThemeProvider>
+      <LayoutContent />
+    </ThemeProvider>
   );
 };
 

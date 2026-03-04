@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import { useTheme } from '../hooks/useTheme';
 
 const Net = ({ 
   gap = 50, 
@@ -36,6 +37,7 @@ const Net = ({
 
 const Background = () => {
   const [dot, setDot] = useState(null);
+  const { isDark } = useTheme();
 
   useEffect(() => { 
     setDot({
@@ -44,10 +46,13 @@ const Background = () => {
     });
   }, []);
 
+  // Adaptive grid color based on theme
+  const gridColor = isDark ? "#e0e0e015" : "#e0e0e030";
+
   return (
     <>
       {/* Grid background */}
-      <Net />
+      <Net color={gridColor} />
       
       {/* Single purple dot with heavy blur */}
       {dot && (
@@ -58,9 +63,12 @@ const Background = () => {
             top: `${dot.y}%`,
             width: '500px',
             height: '500px',
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 70%)',
+            background: isDark
+              ? 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%)'
+              : 'radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0) 70%)',
             filter: 'blur(80px)',
             transform: 'translate(-50%, -50%)',
+            transition: 'background 0.3s ease',
           }}
         />
       )}
