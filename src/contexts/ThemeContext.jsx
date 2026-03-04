@@ -16,8 +16,8 @@ export const ThemeProvider = ({ children }) => {
       return THEME_MODES.DARK;
     }
 
-    // Default to dark
-    return THEME_MODES.DARK;
+    // Default to light
+    return THEME_MODES.LIGHT;
   });
 
   const toggleTheme = () => {

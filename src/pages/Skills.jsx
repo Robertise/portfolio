@@ -25,10 +25,10 @@ const Skills = () => {
         
         {/* Section Header */}
         <div className="flex items-center justify-between mb-16 gap-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-(--text-primary) whitespace-nowrap flex items-center gap-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) whitespace-nowrap flex items-center gap-3">
             <span className="text-(--text-secondary)">02.</span> SKILLS
           </h2>
-          <div className="hidden sm:flex flex-1 h-px bg-gradient-to-r from-(--accent) to-transparent"></div>
+          <div className="hidden sm:flex flex-1 h-px bg-linear-to-r from-(--accent) to-transparent"></div>
           <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
             // Tech Stack & Tools
           </span>

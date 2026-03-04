@@ -23,7 +23,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen); 
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] shadow-sm transition-colors duration-300">
+    <header className="fixed w-full top-0 z-50 bg-(--bg-secondary) border-b border-(--border-color) shadow-sm transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
@@ -49,7 +49,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.target)}
-                className="px-3 py-2 text-sm font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors duration-200 hover:bg-[var(--hover-bg)] rounded-md"
+                className="px-3 py-2 text-sm font-medium text-(--text-primary) hover:text-(--accent) transition-colors duration-200 hover:bg-(--hover-bg) rounded-md"
               >
                 {item.name}
               </button>
@@ -60,7 +60,7 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Theme Toggle */}
             <button
-              className="p-2 rounded-lg hover:bg-[var(--hover-bg)] transition-colors duration-200 text-[var(--text-primary)]"
+              className="p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
               onClick={toggleTheme}
               aria-label="Toggle dark/light mode"
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -73,14 +73,14 @@ const Header = () => {
             </button>
 
             {/* Resume Button */}
-            <button className="hidden sm:flex bg-[var(--primary)] text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
+            <button className="hidden sm:flex bg-(--primary) text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
               <AiOutlineDownload className="h-4 w-4" />
               <span>Resume</span>
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover-bg)] transition-colors duration-200 text-[var(--text-primary)]"
+              className="lg:hidden p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -95,7 +95,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-[var(--border-color)] bg-[var(--bg-primary)] animate-in fade-in duration-200">
+          <div className="lg:hidden border-t border-(--border-color) bg-(--bg-primary) animate-in fade-in duration-200">
             <div className="px-2 py-3 space-y-1">
               {NAV_ITEMS.map((item) => (
                 <button
@@ -104,12 +104,12 @@ const Header = () => {
                     scrollTo(item.target);
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:bg-[var(--hover-bg)] transition-colors duration-200"
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-(--text-primary) hover:bg-(--hover-bg) transition-colors duration-200"
                 >
                   {item.name}
                 </button>
               ))}
-              <button className="w-full mt-2 bg-[var(--primary)] text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2">
+              <button className="w-full mt-2 bg-(--primary) text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2">
                 <AiOutlineDownload className="h-4 w-4" />
                 <span>Resume</span>
               </button>

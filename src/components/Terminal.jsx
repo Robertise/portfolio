@@ -33,7 +33,7 @@ export default function Terminal() {
               </p>
             </div>
             <div className="px-4 md:px-6 ml-0 border-l-2 border-(--accent) pl-4 space-y-2">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-[Pridi] text-(--text-primary) tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-wide font-bold font-[Pridi] text-(--text-primary)">
                 Gia Huy
               </h1> 
               <p className="text-sm md:text-lg text-(--accent) font-medium">
