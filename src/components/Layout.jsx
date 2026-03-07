@@ -1,30 +1,34 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from 'react';
+import { useState } from "react";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Background from "../components/Background";
-import Header from './Header';
-import Intro from './Intro';
-import Home from '../pages/Home';
+import Header from "./Header";
+import Intro from "./Intro";
+import ScrollSpy from "./ScrollSpy";
+import Home from "../pages/Home";
 
 const LayoutContent = () => {
   const [showIntro, setShowIntro] = useState(true);
 
-  const handleAnimationComplete = () => { 
+  const handleAnimationComplete = () => {
     setTimeout(() => {
       setShowIntro(false);
     }, 500);
   };
 
   return (
-    <div className="relative min-h-screen bg-(--bg-primary) transition-colors duration-300">   
+    <div className="relative min-h-screen bg-(--bg-primary) transition-colors duration-300">
       {/* Background */}
       <Background />
 
       {/* Header */}
       <Header />
-      
+
+      {/* Scroll Spy Navigation */}
+      <ScrollSpy />
+
       {/* Main Content */}
-      <Home />  
+      <Home />
 
       {/* Intro overlay - fades out after animation */}
       <AnimatePresence>

@@ -54,7 +54,7 @@ const Background = () => {
       {/* Grid background */}
       <Net color={gridColor} />
       
-      {/* Single purple dot with heavy blur */}
+      {/* Single purple dot with blur */}
       {dot && (
         <div
           className="fixed rounded-full z-0 pointer-events-none"
@@ -65,8 +65,8 @@ const Background = () => {
             height: '500px',
             background: isDark
               ? 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%)'
-              : 'radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0) 70%)',
-            filter: 'blur(80px)',
+              : 'radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0) 70%)',
+            filter: 'blur(30px)',
             transform: 'translate(-50%, -50%)',
             transition: 'background 0.3s ease',
           }}
