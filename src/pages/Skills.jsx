@@ -5,26 +5,25 @@ const Skills = () => {
     {
       icon: <LuBrain className="w-6 h-6 text-(--accent)" />,
       title: "Machine Learning",
-      skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "OpenCV"]
+      skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "OpenCV"],
     },
     {
       icon: <LuCode className="w-6 h-6 text-(--accent)" />,
       title: "Languages",
-      skills: ["Python", "C++", "SQL", "JavaScript"]
+      skills: ["Python", "C++", "SQL", "JavaScript"],
     },
     {
       icon: <LuWrench className="w-6 h-6 text-(--accent)" />,
       title: "Tools & Cloud",
-      skills: ["Git & GitHub", "Docker", "AWS (EC2, S3)", "Jupyter"]
-    }
+      skills: ["Git & GitHub", "Docker", "AWS (EC2, S3)", "Jupyter"],
+    },
   ];
 
   return (
-    <section className="py-20 md:py-28 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
-        
+    <section className="py-12 sm:py-20 md:py-28 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-16 gap-6">
+        <div className="flex items-center justify-between mb-10 gap-6">
           <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) whitespace-nowrap flex items-center gap-3">
             <span className="text-(--text-secondary)">02.</span> SKILLS
           </h2>
@@ -49,7 +48,7 @@ const Skills = () => {
                   {category.title}
                 </h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <span

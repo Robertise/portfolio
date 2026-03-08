@@ -6,12 +6,12 @@ import { useTheme } from "../hooks/useTheme";
 const DOT_SPACING = 30;
 const TRIGGER_OFFSET = 120;
 
-export default function ScrollSpy() { 
+export default function ScrollSpy() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [fillDir, setFillDir] = useState("down");
 
-  const dotRef = useRef(0); 
+  const dotRef = useRef(0);
   const dirRef = useRef("down");
 
   const { isDark } = useTheme();
@@ -19,7 +19,7 @@ export default function ScrollSpy() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = NAV_ITEMS.map((item) =>
-        document.getElementById(item.target)
+        document.getElementById(item.target),
       ).filter(Boolean);
 
       if (!sections.length) return;
@@ -28,7 +28,7 @@ export default function ScrollSpy() {
       const last = sections.length - 1;
 
       const tp = sections.map((s, i) =>
-        i === 0 ? 0 : Math.max(0, s.offsetTop - TRIGGER_OFFSET)
+        i === 0 ? 0 : Math.max(0, s.offsetTop - TRIGGER_OFFSET),
       );
 
       let dot = dotRef.current;
@@ -91,15 +91,16 @@ export default function ScrollSpy() {
       ? DOT_SPACING / 2 + activeIndex * DOT_SPACING - DOT_SPACING * progress
       : DOT_SPACING / 2 + activeIndex * DOT_SPACING;
 
-  const isLastSectionDown = activeIndex === NAV_ITEMS.length - 1 && fillDir === "down";
+  const isLastSectionDown =
+    activeIndex === NAV_ITEMS.length - 1 && fillDir === "down";
   const barHeight = isLastSectionDown ? 0 : DOT_SPACING * progress;
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex">
+    <div className="fixed right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex">
       <div
         className="relative flex flex-col items-center"
         style={{ height: totalHeight }}
-      > 
+      >
         <div
           style={{
             position: "absolute",

@@ -33,7 +33,7 @@ const Header = () => {
             title="Back to home"
           >
             <svg
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
               viewBox="0 0 554 335"
               fill="currentColor"
               stroke="currentColor"
@@ -44,12 +44,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex flex-1 justify-center items-center space-x-1 ml-24">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 md:ml-7 lg:ml-20">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.target)}
-                className="px-3 py-2 text-sm font-medium text-(--text-primary) hover:text-(--accent) transition-colors duration-200 hover:bg-(--hover-bg) rounded-md"
+                className="px-3 py-2 text-xs lg:text-sm font-medium text-(--text-primary) hover:text-(--accent) transition-colors duration-200 hover:bg-(--hover-bg) rounded-md whitespace-nowrap"
               >
                 {item.name}
               </button>
@@ -57,7 +57,7 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1 sm:gap-2 ml-auto">
             {/* Theme Toggle */}
             <button
               className="p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
@@ -66,28 +66,28 @@ const Header = () => {
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? (
-                <IoSunnySharp className="h-5 w-5" />
+                <IoSunnySharp className="h-4 sm:h-5 w-4 sm:w-5" />
               ) : (
-                <IoMoonSharp className="h-5 w-5" />
+                <IoMoonSharp className="h-4 sm:h-5 w-4 sm:w-5" />
               )}
             </button>
 
             {/* Resume Button */}
-            <button className="hidden sm:flex bg-(--primary) text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
-              <AiOutlineDownload className="h-4 w-4" />
-              <span>Resume</span>
+            <button className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
+              <AiOutlineDownload className="h-3 sm:h-4 w-3 sm:w-4" />
+              <span className="hidden lg:inline">Resume</span>
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
+              className="md:hidden p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <FiX className="h-6 w-6" />
+                <FiX className="h-5 sm:h-6 w-5 sm:w-6" />
               ) : (
-                <FiMenu className="h-6 w-6" />
+                <FiMenu className="h-5 sm:h-6 w-5 sm:w-6" />
               )}
             </button>
           </div>
@@ -95,8 +95,8 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-(--border-color) bg-(--bg-primary) animate-in fade-in duration-200">
-            <div className="px-2 py-3 space-y-1">
+          <div className="md:hidden border-t border-(--border-color) bg-(--bg-primary) animate-in fade-in duration-200">
+            <nav className="px-2 py-3 space-y-1">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
@@ -104,7 +104,7 @@ const Header = () => {
                     scrollTo(item.target);
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-(--text-primary) hover:bg-(--hover-bg) transition-colors duration-200"
+                  className="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-(--text-primary) hover:bg-(--hover-bg) transition-colors duration-200"
                 >
                   {item.name}
                 </button>
@@ -113,7 +113,7 @@ const Header = () => {
                 <AiOutlineDownload className="h-4 w-4" />
                 <span>Resume</span>
               </button>
-            </div>
+            </nav>
           </div>
         )}
       </div>
