@@ -1,7 +1,8 @@
-import Terminal from "../components/Terminal"; 
+import Terminal from "../components/Terminal";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import About from "./About";
+import Blogs from "./Blogs";
 
 const Home = () => {
   return (
@@ -20,6 +21,10 @@ const Home = () => {
 
       <section id="projects">
         <Projects />
+      </section>
+
+      <section id="blogs">
+        <Blogs />
       </section>
     </div>
   );

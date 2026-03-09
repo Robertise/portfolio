@@ -1,13 +1,9 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { useTheme } from '../hooks/useTheme';
+import React, { useEffect, useState, useMemo } from "react";
+import { useTheme } from "../hooks/useTheme";
 
-const Net = ({ 
-  gap = 50, 
-  color = "#e0e0e080", 
-  stroke = 0.05 
-}) => {
+const Net = ({ gap = 50, color = "#000000", stroke = 0.5 }) => {
   const patternId = useMemo(() => "grid-pattern", []);
-  
+
   return (
     <svg
       className="fixed inset-0 z-0 pointer-events-none"
@@ -33,13 +29,13 @@ const Net = ({
       <rect width="100%" height="100%" fill={`url(#${patternId})`} />
     </svg>
   );
-}
+};
 
 const Background = () => {
   const [dot, setDot] = useState(null);
   const { isDark } = useTheme();
 
-  useEffect(() => { 
+  useEffect(() => {
     setDot({
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -47,13 +43,13 @@ const Background = () => {
   }, []);
 
   // Adaptive grid color based on theme
-  const gridColor = isDark ? "#e0e0e015" : "#e0e0e030";
+  const gridColor = isDark ? "#e0e0e015" : "#74747430";
 
   return (
     <>
       {/* Grid background */}
       <Net color={gridColor} />
-      
+
       {/* Single purple dot with blur */}
       {dot && (
         <div
@@ -61,19 +57,19 @@ const Background = () => {
           style={{
             left: `${dot.x}%`,
             top: `${dot.y}%`,
-            width: '500px',
-            height: '500px',
+            width: "500px",
+            height: "500px",
             background: isDark
-              ? 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%)'
-              : 'radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0) 70%)',
-            filter: 'blur(30px)',
-            transform: 'translate(-50%, -50%)',
-            transition: 'background 0.3s ease',
+              ? "radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%)"
+              : "radial-gradient(circle, rgba(70, 23, 238, 0.2) 0%, rgba(168, 85, 247, 0) 70%)",
+            filter: "blur(30px)",
+            transform: "translate(-50%, -50%)",
+            transition: "background 0.3s ease",
           }}
         />
       )}
     </>
   );
-}
+};
 
 export default Background;

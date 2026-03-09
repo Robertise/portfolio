@@ -7,19 +7,20 @@
 */
 :root,
 [data-theme="light"] {
-  --bg-primary: #f6f6f8;
-  --bg-secondary: #ffffff;
+  --bg-primary: #fafafc;
+  --bg-secondary: #f2f2f5;
   --text-primary: #111422;
   --text-secondary: #6b7280;
   --border-color: #e5e7eb;
   --hover-bg: #f3f4f6;
   --primary: #1337ec;
   --accent: #2f81f7;
+  --card-background: #fefeff;
 
   /* Legacy variables for backward compatibility */
   --background-light: #f6f6f8;
-  --terminal-bg: #f0f0f5;
-  --terminal-header: #e5e5eb;
+  --terminal-bg: #fcfcff;
+  --terminal-header: #f0f0f3;
 
   color-scheme: light;
 }
@@ -39,6 +40,7 @@ body.dark {
   --hover-bg: #1f2937;
   --primary: #1337ec;
   --accent: #2f81f7;
+  --card-background: #1a1f2e;
 
   /* Legacy variables for backward compatibility */
   --background-dark: #111422;
@@ -94,6 +96,26 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   opacity: 0.8;
 }
+
+.tabs-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.tabs-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabs-scroll::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 999px;
+  opacity: 0.5;
+}
+
+.tabs-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+  opacity: 1;
+}
+
 
 /* 
   ============================================

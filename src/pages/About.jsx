@@ -1,15 +1,18 @@
 import { useState } from "react";
-import {
-  LuBrain,
+import { 
   LuUser,
   LuLightbulb,
   LuBookOpen,
   LuImage,
+  LuGraduationCap,
+  LuTrophy,
+  LuFileCheck,
 } from "react-icons/lu";
-import { FaAward, FaRocket } from "react-icons/fa6";
-import { TbTools } from "react-icons/tb";
+import { FaAward, FaRocket, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { TbTools, TbBrandX } from "react-icons/tb";
 import { PiStrategyBold } from "react-icons/pi";
 import { BiErrorAlt, BiBookBookmark } from "react-icons/bi";
+import { SiGmail } from "react-icons/si";
 import Gallery from "../components/Gallery";
 import profileImage from "../assets/DoGiaHuy.png";
 
@@ -17,16 +20,91 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const tabs = [
     { id: "overview", label: "Overview", icon: LuUser },
-    { id: "academic", label: "AI Focus", icon: LuBrain },
+    { id: "education", label: "Education", icon: LuGraduationCap },
+    { id: "achievements", label: "Achievements", icon: LuTrophy },
+    { id: "certificates", label: "Certificates", icon: LuFileCheck },
     { id: "skills", label: "Skills & Mindset", icon: LuLightbulb },
     { id: "personal", label: "Personal", icon: LuBookOpen },
     { id: "gallery", label: "My Gallery", icon: LuImage },
   ];
 
+  const educationData = [
+    {
+      year: "2023 - Present",
+      degree: "Bachelor of Science in Artificial Intelligence",
+      school: "Swinburne University of Technology",
+      details:
+        "Focusing on machine learning, deep learning, and data analysis. Currently in Year 3.",
+    }
+  ];
+
+  const achievementsData = [
+    "Dean's List - Academic Excellence (2023, 2024)",
+    "First Prize in AI Project Competition (2023)",
+    "Completed 5+ Personal AI & ML Projects",
+    "Active Open Source Contributor",
+    "Strong Foundation in Deep Learning & Reinforcement Learning",
+    "Proficient in Python, PyTorch, and TensorFlow",
+  ];
+
+  const certificatesData = [
+    {
+      title: "Deep Learning Specialization",
+      issuer: "Coursera (Andrew Ng)",
+      url: "https://www.coursera.org",
+      receivedDate: "Dec 2023",
+    },
+    {
+      title: "Machine Learning Engineering for Production",
+      issuer: "Coursera",
+      url: "https://www.coursera.org",
+      receivedDate: "Jan 2024",
+    },
+    {
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      url: "https://aws.amazon.com",
+      receivedDate: "Mar 2024",
+    },
+    {
+      title: "The Complete Python Bootcamp",
+      issuer: "Udemy",
+      url: "https://www.udemy.com",
+      receivedDate: "Jun 2023",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      icon: FaGithub,
+      label: "GitHub",
+      url: "https://github.com",
+      color: "hover:text-gray-500 hover:border-gray-500",
+    },
+    {
+      icon: FaLinkedin,
+      label: "LinkedIn",
+      url: "https://linkedin.com",
+      color: "hover:text-blue-400 hover:border-blue-400",
+    },
+    {
+      icon: FaInstagram,
+      label: "Instagram",
+      url: "https://instagram.com",
+      color: "hover:text-pink-400 hover:border-pink-400",
+    },
+    {
+      icon: SiGmail,
+      label: "Email",
+      url: "mailto:your.email@gmail.com",
+      color: "hover:text-red-400 hover:border-red-400",
+    },
+  ];
+
   return (
     <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-10 gap-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center justify-between mb-14 gap-6">
           <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) flex items-center gap-3">
             <span className="text-(--text-secondary)">01.</span> ABOUT ME
           </h2>
@@ -36,22 +114,23 @@ const About = () => {
           </span>
         </div>
 
+        {/* Tabs */}
         <div className="border-b border-(--border-color) mb-8">
-          <div className="flex space-x-4 md:space-x-10 overflow-x-auto">
+          <div className="flex space-x-3 sm:space-x-4 md:space-x-10 overflow-x-auto tabs-scroll">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-2 pb-4 border-b-2 ${
+                  className={`flex flex-col sm:flex-col md:flex-row items-center sm:space-x-0 md:space-x-2 md:gap-0 gap-1 pb-4 border-b-2 px-2 sm:px-3 md:px-0 ${
                     activeTab === tab.id
                       ? "border-(--accent) text-(--accent)"
                       : "border-transparent text-gray-400 hover:text-(--accent)"
                   } transition-colors`}
                 >
-                  <Icon className="w-5 h-5 ml-2 md:ml-0" />
-                  <span className="text-sm font-medium hidden md:block">
+                  <Icon className="w-5 h-5" />
+                  <span className="hidden sm:block text-xs sm:text-sm font-medium">
                     {tab.label}
                   </span>
                 </button>
@@ -61,6 +140,7 @@ const About = () => {
         </div>
 
         <div>
+          {/* Overview */}
           {activeTab === "overview" && (
             <div className="text-(--text-secondary) space-y-4 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
               <div className="col-span-1">
@@ -71,7 +151,7 @@ const About = () => {
                 />
               </div>
               <div className="col-span-2">
-                <h2 className="text-3xl md:text-4xl font-semibold text-(--text-primary) whitespace-nowrap mb-2">
+                <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-2">
                   Hello, I'm Do Gia Huy.
                 </h2>
                 <h2 className="text-1xl md:text-2xl font-semibold text-(--text-secondary) whitespace-nowrap mb-5">
@@ -84,6 +164,24 @@ const About = () => {
                   analysis, I am dedicated to building intelligent systems that
                   bridge the gap between complex data and human understanding.
                 </p>
+
+                <div className="flex gap-4 my-6">
+                  {socialLinks.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-(--accent) text-(--accent) transition-all duration-300 ${link.color}`}
+                        title={link.label}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </a>
+                    );
+                  })}
+                </div>
 
                 <div className="flex-1 h-px my-8 bg-(--border-color)"></div>
 
@@ -121,57 +219,125 @@ const About = () => {
             </div>
           )}
 
-          {activeTab === "academic" && (
-            <div className="text-(--text-secondary) space-y-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-(--text-primary) whitespace-nowrap mb-2">
-                Why choosing AI?
+          {/* Education */}
+          {activeTab === "education" && (
+            <div className="text-(--text-secondary) space-y-8">
+              <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-8">
+                Education Timeline
               </h2>
-              <p className="mt-4">
-                I chose AI because I'm fascinated by systems that can improve
-                themselves, machines that don't just execute instructions but
-                learn from experience. The field sits at this intersection of
-                mathematics, engineering, and philosophy that feels endlessly
-                explorable.
-              </p>
-              <h2 className="text-1xl md:text-2xl font-semibold text-(--text-secondary) whitespace-nowrap mb-5">
-                Core <span className="text-(--accent)">Interests</span>
+
+              {educationData.map((edu, index) => (
+                <div key={index} className="relative pl-8 pb-8">
+                  <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-(--accent) border-2 border-(--bg-primary)"></div>
+                  {index < educationData.length - 1 && (
+                    <div className="absolute left-1.5 top-6 bottom-0 w-1 bg-(--accent)"></div>
+                  )}
+
+                  <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) transition-all duration-300">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-semibold text-(--text-primary)">
+                        {edu.degree}
+                      </h3>
+                      <span className="text-(--accent) font-medium text-sm">
+                        {edu.year}
+                      </span>
+                    </div>
+                    <p className="text-lg text-(--text-secondary) mb-2 flex items-center">
+                      <LuGraduationCap className="mr-2 text-(--accent)" />
+                      {edu.school}
+                    </p>
+                    <p className="text-(--text-secondary) text-sm leading-relaxed">
+                      {edu.details}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Achievements */}
+          {activeTab === "achievements" && (
+            <div className="text-(--text-secondary) space-y-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-8">
+                My Achievements
               </h2>
-              <div className="border-l-2 pl-5 py-2 mb-5 border-(--accent)">
-                <p className="text-(--text-primary) font-medium">
-                  Deep Learning & Neural Architecture
-                </p>
-                <p>
-                  How model design choices affect learning dynamics. Currently
-                  exploring attention mechanisms and their applications beyond
-                  NLP.
-                </p>
-              </div>
-              <div className="border-l-2 pl-5 py-2 mb-5 border-(--accent)">
-                <p className="text-(--text-primary) font-medium">
-                  Reinforcement Learning
-                </p>
-                <p>
-                  The challenge of getting agents to learn optimal behavior
-                  through trial and error. Working on understanding
-                  exploration-exploitation tradeoffs.
-                </p>
-              </div>
-              <div className="border-l-2 pl-5 py-2 border-(--accent)">
-                <p className="text-(--text-primary) font-medium">
-                  Applied ML Systems
-                </p>
-                <p>
-                  Bridging the gap between research and production. Interested
-                  in model optimization, deployment, and building reliable ML
-                  pipelines.
-                </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {achievementsData.map((achievement, index) => (
+                  <div
+                    key={index}
+                    className="group bg-(--card-background) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-3">
+                      <LuTrophy className="w-6 h-6 text-(--accent) flex-shrink-0 mt-1" />
+                      <p className="text-(--text-primary) font-medium group-hover:text-(--accent) transition-colors">
+                        {achievement}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
+          {/* Certificates */}
+          {activeTab === "certificates" && (
+            <div className="text-(--text-secondary) space-y-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-8">
+                Professional Certificates
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {certificatesData.map((cert, index) => (
+                  <a
+                    key={index}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative bg-(--card-background) border border-(--border-color) rounded-lg p-4 hover:border-(--accent) hover:shadow-lg transition-all duration-300 flex flex-col"
+                  >
+                    <div className="absolute top-3 right-3 bg-(--accent) text-white text-xs font-semibold px-2 py-1 rounded-md">
+                      {cert.receivedDate}
+                    </div>
+
+                    <div className="pr-20 mb-4">
+                      <div className="w-10 h-10 rounded-lg bg-(--border-color) flex items-center justify-center mb-3 group-hover:bg-(--accent) transition-colors">
+                        <LuFileCheck className="w-5 h-5 text-(--accent) group-hover:text-white" />
+                      </div>
+                      <h3 className="text-base font-semibold text-(--text-primary) group-hover:text-(--accent) transition-colors line-clamp-2 mb-2">
+                        {cert.title}
+                      </h3>
+                      <p className="text-xs text-(--text-secondary) line-clamp-2">
+                        {cert.issuer}
+                      </p>
+                    </div>
+
+                    <div className="mt-auto pt-3 border-t border-(--border-color) flex items-center gap-1 text-(--accent) text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>View Certificate</span>
+                      <svg
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Skills & Mindset */}
           {activeTab === "skills" && (
             <div className="text-(--text-secondary) space-y-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-(--text-primary) whitespace-nowrap mb-2">
+              <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-2">
                 How I Think & Work?
               </h2>
               <p className="mt-4 mb-7">
@@ -180,46 +346,43 @@ const About = () => {
                 slower - because that's where the real learning happens.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) transition-colors">
-                  <h5 className="mb-3 text-xl flex items-center text-(--text-primary) font-semibold">
-                    <BiErrorAlt className="mr-2 text-(--accent)" />
+                <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) transition-colors">
+                  <h5 className="mb-3 text-lg flex items-center text-(--text-primary) font-semibold">
+                    <BiErrorAlt className="w-6 h-6 mr-2 text-(--accent) pb-1" />
                     Problem-Solving Approach
                   </h5>
-                  <p>
+                  <p className="text-sm">
                     I decompose complex problems into testable prototypes,
                     iterating based on data and treating setbacks as insights
                     rather than failures.
                   </p>
                 </div>
-                <div className="bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) transition-colors">
-                  <h5 className="mb-3 text-xl flex items-center text-(--text-primary) font-semibold">
-                    <BiBookBookmark className="mr-2 text-(--accent)" />
+                <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) transition-colors">
+                  <h5 className="mb-3 text-lg flex items-center text-(--text-primary) font-semibold">
+                    <BiBookBookmark className="w-6 h-6 mr-2 text-(--accent) pb-1" />
                     Learning Philosophy
                   </h5>
-                  <p>
-                    I learn best through action; while reading provides
-                    direction, coding and experimenting solidify concepts. I use
-                    a technical journal to document results and clarify
-                    trade-offs.
+                  <p className="text-sm">
+                    I learn by building and testing, and I use a journal to stay organized and weigh my options.
                   </p>
                 </div>
-                <div className="bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) transition-colors">
-                  <h5 className="mb-3 text-xl flex items-center text-(--text-primary) font-semibold">
-                    <PiStrategyBold className="mr-2 text-(--accent)" />
+                <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) transition-colors">
+                  <h5 className="mb-3 text-lg flex items-center text-(--text-primary) font-semibold">
+                    <PiStrategyBold className="w-6 h-6 mr-2 text-(--accent) pb-1" />
                     Data Strategy
                   </h5>
-                  <p>
+                  <p className="text-sm">
                     Treating raw data as the primary source of truth.
                     Implementing robust pipelines for data integrity and
                     insight.
                   </p>
                 </div>
-                <div className="bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) transition-colors">
-                  <h5 className="mb-3 text-xl flex items-center text-(--text-primary) font-semibold">
-                    <TbTools className="mr-2 text-(--accent)" />
+                <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) transition-colors">
+                  <h5 className="mb-3 text-lg flex items-center text-(--text-primary) font-semibold">
+                    <TbTools className="w-6 h-6 mr-2 text-(--accent) pb-1" />
                     Technical Toolkit
                   </h5>
-                  <p>
+                  <p className="text-sm">
                     I prioritize solving problems effectively over collecting
                     tools, using Python (PyTorch, scikit-learn, NumPy), Git, and
                     cloud platforms as means to that end.
@@ -229,9 +392,10 @@ const About = () => {
             </div>
           )}
 
+          {/* Personal Hobbies */}
           {activeTab === "personal" && (
             <div className="text-(--text-secondary) space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold text-(--text-primary) whitespace-nowrap mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-6">
                 Beyond the Code.
               </h2>
 
@@ -300,7 +464,7 @@ const About = () => {
                     Core Values
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-(--bg-secondary) border-l-2 border-(--accent) pl-4 py-3 rounded">
+                    <div className="bg-(--card-background) border-l-2 border-(--accent) pl-4 py-3 rounded">
                       <h4 className="font-semibold text-(--text-primary) mb-1">
                         Discipline
                       </h4>
@@ -309,7 +473,7 @@ const About = () => {
                         discipline compound into long-term success.
                       </p>
                     </div>
-                    <div className="bg-(--bg-secondary) border-l-2 border-(--accent) pl-4 py-3 rounded">
+                    <div className="bg-(--card-background) border-l-2 border-(--accent) pl-4 py-3 rounded">
                       <h4 className="font-semibold text-(--text-primary) mb-1">
                         Continuous Learning
                       </h4>
@@ -318,7 +482,7 @@ const About = () => {
                         through constant practice and study.
                       </p>
                     </div>
-                    <div className="bg-(--bg-secondary) border-l-2 border-(--accent) pl-4 py-3 rounded">
+                    <div className="bg-(--card-background) border-l-2 border-(--accent) pl-4 py-3 rounded">
                       <h4 className="font-semibold text-(--text-primary) mb-1">
                         Impact
                       </h4>
@@ -327,7 +491,7 @@ const About = () => {
                         solve meaningful problems.
                       </p>
                     </div>
-                    <div className="bg-(--bg-secondary) border-l-2 border-(--accent) pl-4 py-3 rounded">
+                    <div className="bg-(--card-background) border-l-2 border-(--accent) pl-4 py-3 rounded">
                       <h4 className="font-semibold text-(--text-primary) mb-1">
                         Growth Mindset
                       </h4>
@@ -339,7 +503,7 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="bg-(--bg-secondary) border border-(--border-color) rounded-lg p-6">
+                <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-(--text-primary) mb-3">
                     Fun Facts
                   </h3>
@@ -372,6 +536,7 @@ const About = () => {
             </div>
           )}
 
+          {/* My Gallery */}
           {activeTab === "gallery" && (
             <div className="text-(--text-secondary) space-y-4">
               <Gallery />
