@@ -6,7 +6,7 @@ export default function Terminal() {
 
   return (
     <div className="flex justify-center px-3 sm:px-4 py-4 sm:py-8 md:py-16 pt-20 sm:pt-24 md:pt-32">
-      <div className="w-full max-w-4xl bg-(--terminal-bg) rounded-lg sm:rounded-xl overflow-hidden shadow-lg sm:shadow-2xl flex flex-col border border-(--border-color) transition-colors duration-300">
+      <div className="w-full max-w-4xl bg-(--terminal-bg) rounded-lg overflow-hidden shadow-lg sm:shadow-2xl flex flex-col border border-(--border-color) transition-colors duration-300">
         {/* Terminal Header */}
         <div className="bg-(--terminal-header) px-3 sm:px-4 py-2 sm:py-3 flex items-center justify-between border-b border-(--border-color) transition-colors duration-300">
           <div className="flex gap-2">

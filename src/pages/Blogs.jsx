@@ -66,7 +66,7 @@ const Blogs = () => {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-14 gap-6">
           <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) flex items-center gap-3">
-            <span className="text-(--text-secondary)">04.</span> BLOGS
+            <span className="text-(--primary)">04.</span> BLOGS
           </h2>
           <div className="hidden sm:flex flex-1 h-px bg-linear-to-r from-(--accent) to-transparent"></div>
           <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
@@ -80,7 +80,7 @@ const Blogs = () => {
             <div
               key={index}
               onClick={() => handleBlogClick(blog.url)}
-              className="bg-(--card-background) border border-(--border-color) rounded-lg md:rounded-xl overflow-hidden hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer group"
+              className="bg-(--card-background) border border-(--border-color) rounded-lg overflow-hidden hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer group"
             >
               <div className="grid md:grid-cols-4 gap-4 md:gap-6 p-4 md:p-5">
                 {/* Blog Image */}
@@ -106,7 +106,7 @@ const Blogs = () => {
                     <h3 className="text-lg md:text-xl font-semibold text-(--text-primary) line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed line-clamp-2">
+                    <p className="text-(--text-secondary) md:text-sm text-xs leading-relaxed line-clamp-2">
                       {blog.description}
                     </p>
                   </div>
@@ -116,7 +116,7 @@ const Blogs = () => {
                     {blog.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-2.5 py-1 bg-(--bg-primary) text-(--accent) text-xs font-medium rounded-md border border-(--border-color) hover:border-(--accent) transition-all duration-200"
+                        className="px-2.5 py-1 bg-(--bg-primary) text-(--accent) md:text-sm text-xs font-medium rounded-md border border-(--border-color) hover:border-(--accent) transition-all duration-200"
                       >
                         {tag}
                       </span>
@@ -125,7 +125,7 @@ const Blogs = () => {
                   
                   {/* Redirect */}
                   <div className="absolute bottom-0 right-0 flex items-center gap-2">
-                    <span className="flex items-center gap-1 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="flex items-center gap-1 md:text-sm text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       View blog
                       <LuExternalLink className="w-4 h-4 ml-0.5" />
                     </span>

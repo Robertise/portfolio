@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoMoonSharp, IoSunnySharp } from "react-icons/io5";
-import { AiOutlineDownload } from "react-icons/ai";
+import { LuDownload } from "react-icons/lu"; 
 import { useTheme } from "../hooks/useTheme";
 import { NAV_ITEMS } from "../config/navigation";
 
@@ -60,7 +60,7 @@ const Header = () => {
           <div className="flex items-center gap-1 sm:gap-2 ml-auto">
             {/* Theme Toggle */}
             <button
-              className="p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary)"
+              className="p-2 rounded-lg hover:bg-(--hover-bg) transition-colors duration-200 text-(--text-primary) mt-1"
               onClick={toggleTheme}
               aria-label="Toggle dark/light mode"
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -73,9 +73,9 @@ const Header = () => {
             </button>
 
             {/* Resume Button */}
-            <button className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
-              <AiOutlineDownload className="h-3 sm:h-4 w-3 sm:w-4" />
-              <span className="hidden lg:inline">Resume</span>
+            <button className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-md hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
+              <LuDownload className="h-3 sm:h-4 w-3 sm:w-4" />
+              <span className="hidden lg:inline pr-1">Resume</span>
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -110,7 +110,7 @@ const Header = () => {
                 </button>
               ))}
               <button className="w-full mt-2 bg-(--primary) text-white text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2">
-                <AiOutlineDownload className="h-4 w-4" />
+                <LuDownload className="h-4 w-4" />
                 <span>Resume</span>
               </button>
             </nav>

@@ -40,7 +40,7 @@ const Projects = () => {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-14 gap-6">
           <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) flex items-center gap-3">
-            <span className="text-(--text-secondary)">03.</span> PROJECTS
+            <span className="text-(--primary)">03.</span> PROJECTS
           </h2>
           <div className="hidden sm:flex flex-1 h-px bg-linear-to-r from-(--accent) to-transparent"></div>
           <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
@@ -49,7 +49,7 @@ const Projects = () => {
         </div>
 
         {/* Projects List */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -73,13 +73,13 @@ const Projects = () => {
                   </h3>
                   <div className="flex gap-2 shrink-0">
                     <button
-                      className="p-1.5 rounded-lg text-(--text-secondary) hover:text-(--accent) hover:bg-(--hover-bg) transition-all duration-200"
+                      className="p-1.5 rounded-lg text-(--text-secondary) hover:text-yellow-600 hover:bg-(--hover-bg) transition-all duration-200"
                       title="View code"
                     >
                       <LuCode className="w-4 h-4" />
                     </button>
                     <button
-                      className="p-1.5 rounded-lg text-(--text-secondary) hover:text-(--accent) hover:bg-(--hover-bg) transition-all duration-200"
+                      className="p-1.5 rounded-lg text-(--text-secondary) hover:text-green-700 hover:bg-(--hover-bg) transition-all duration-200"
                       title="Visit project"
                     >
                       <LuExternalLink className="w-4 h-4" />
@@ -92,20 +92,20 @@ const Projects = () => {
 
                 {/* Problem */}
                 <div>
-                  <h4 className="text-xs font-bold text-(--accent) uppercase tracking-widest mb-1">
+                  <h4 className="md:text-sm text-xs font-bold text-red-500 uppercase tracking-widest mb-1">
                     Problem
                   </h4>
-                  <p className="text-(--text-secondary) text-xs leading-relaxed line-clamp-2">
+                  <p className="text-(--text-secondary) md:text-sm text-xs leading-relaxed line-clamp-2">
                     {project.problem}
                   </p>
                 </div>
 
                 {/* Solution */}
                 <div>
-                  <h4 className="text-xs font-bold text-(--accent) uppercase tracking-widest mb-1">
+                  <h4 className="md:text-sm text-xs font-bold text-green-700 uppercase tracking-widest mb-1">
                     Solution
                   </h4>
-                  <p className="text-(--text-secondary) text-xs leading-relaxed line-clamp-2">
+                  <p className="text-(--text-secondary) md:text-sm text-xs leading-relaxed line-clamp-2">
                     {project.solution}
                   </p>
                 </div>
@@ -115,7 +115,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-2 py-1 bg-(--bg-primary) text-(--accent) text-xs font-medium rounded border border-(--border-color) hover:border-(--accent) transition-all duration-200"
+                      className="px-2 py-1 bg-(--bg-primary) text-(--accent) md:text-sm text-xs font-medium rounded border border-(--border-color) hover:border-(--accent) transition-all duration-200"
                     >
                       {tag}
                     </span>

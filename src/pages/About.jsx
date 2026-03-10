@@ -106,7 +106,7 @@ const About = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-14 gap-6">
           <h2 className="text-3xl md:text-4xl font-bold text-(--text-primary) flex items-center gap-3">
-            <span className="text-(--text-secondary)">01.</span> ABOUT ME
+            <span className="text-(--primary)">01.</span> ABOUT ME
           </h2>
           <div className="hidden sm:flex flex-1 h-px bg-linear-to-r from-(--accent) to-transparent"></div>
           <span className="hidden md:block text-sm text-(--text-secondary) uppercase tracking-widest whitespace-nowrap">
@@ -156,7 +156,7 @@ const About = () => {
                 </h2>
                 <h2 className="text-1xl md:text-2xl font-semibold text-(--text-secondary) whitespace-nowrap mb-5">
                   AI Student at{" "}
-                  <span className="text-(--accent)">Swinburne University</span>
+                  <span className="text-red-500">Swinburne University</span>
                 </h2>
                 <p>
                   I'm a passionate AI student based in Ho Chi Minh City,

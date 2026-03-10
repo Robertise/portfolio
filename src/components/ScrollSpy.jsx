@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { NAV_ITEMS } from "../config/navigation";
 import { useTheme } from "../hooks/useTheme";
 
@@ -7,10 +7,10 @@ const DOT_SPACING = 30;
 const TRIGGER_OFFSET = 120;
 
 export default function ScrollSpy() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [fillDir, setFillDir] = useState("down");
-
+  const [activeIndex, setActiveIndex] = useState(0); 
+  const [progress, setProgress] = useState(0);    
+  const [fillDir, setFillDir] = useState("down");      
+  const [hoveredIndex, setHoveredIndex] = useState(null); 
   const dotRef = useRef(0);
   const dirRef = useRef("down");
 
@@ -18,6 +18,7 @@ export default function ScrollSpy() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Grab all section elements defined in NAV_ITEMS
       const sections = NAV_ITEMS.map((item) =>
         document.getElementById(item.target),
       ).filter(Boolean);
@@ -34,6 +35,7 @@ export default function ScrollSpy() {
       let dot = dotRef.current;
       let dir = dirRef.current;
 
+      // Advance or retreat the active dot based on scroll direction
       if (dir === "down") {
         while (dot < last && scrollY >= tp[dot + 1]) dot++;
         if (scrollY < tp[dot]) {
@@ -48,8 +50,10 @@ export default function ScrollSpy() {
         }
       }
 
+      // Reset direction at the top
       if (dot === 0 && dir === "up") dir = "down";
 
+      // Calculate how far along we are between the current and next/prev dot (0–1)
       let prog = 0;
       if (dir === "down" && dot < last) {
         const range = tp[dot + 1] - tp[dot];
@@ -61,6 +65,7 @@ export default function ScrollSpy() {
 
       prog = Math.min(Math.max(prog, 0), 1);
 
+      // Persist latest values in refs for next scroll event
       dotRef.current = dot;
       dirRef.current = dir;
 
@@ -70,14 +75,16 @@ export default function ScrollSpy() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // run once on mount to set initial state
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Theme-aware colors for active and inactive dots
   const primary = isDark ? "#2f81f7" : "#1337ec";
   const secondary = isDark ? "#4B5563" : "#D1D5DB";
 
+  // Smooth-scroll to the clicked section
   const handleDotClick = (target) => {
     document
       .getElementById(target)
@@ -101,6 +108,7 @@ export default function ScrollSpy() {
         className="relative flex flex-col items-center"
         style={{ height: totalHeight }}
       >
+        {/* Animated fill bar that travels between dots */}
         <div
           style={{
             position: "absolute",
@@ -115,15 +123,19 @@ export default function ScrollSpy() {
 
         {NAV_ITEMS.map((item, index) => {
           const isActive = index === activeIndex;
+          const isHovered = hoveredIndex === index;
 
           return (
             <button
               key={item.id}
               onClick={() => handleDotClick(item.target)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
               style={{ height: DOT_SPACING, width: 28 }}
-              className="flex items-center justify-center"
+              className="relative flex items-center justify-center group"
               title={item.name}
             >
+              {/* The dot - pulses when active */}
               <motion.div
                 className="rounded-full"
                 style={{
@@ -136,6 +148,31 @@ export default function ScrollSpy() {
                 animate={{ scale: isActive ? [1, 1.35, 1] : 1 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
               />
+
+              {/* Tooltip - only visible on lg+ screens, hidden on md and below */}
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.span
+                    initial={{ opacity: 0, x: 6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 6 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="hidden lg:flex absolute right-full mr-2 rounded-sm items-center whitespace-nowrap text-xs font-medium px-2 py-1 roundedpointer-events-none select-none"
+                    style={{
+                      background: isDark
+                        ? "rgba(30,30,36,0.92)"
+                        : "rgba(255,255,255,0.95)",
+                      color: isDark ? "#e5e7eb" : "#111827",
+                      boxShadow: isDark
+                        ? "0 2px 8px rgba(0,0,0,0.45)"
+                        : "0 2px 8px rgba(0,0,0,0.12)",
+                      border: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
+                    }}
+                  >
+                    {item.name}
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
           );
         })}
