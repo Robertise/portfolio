@@ -8,12 +8,11 @@ import {
   LuTrophy,
   LuFileCheck
 } from "react-icons/lu";
-import { FaAward, FaRocket, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { FaAward, FaRocket } from "react-icons/fa6";
 import { TbTools } from "react-icons/tb";
 import { PiStrategyBold } from "react-icons/pi";
 import { BiErrorAlt, BiBookBookmark } from "react-icons/bi";
-import { SiGmail } from "react-icons/si";
-import { certificatesData } from "../data/aboutData";
+import { certificatesData, educationData, achievementsData, socialLinks } from "../data/about";
 import CertificateCard from "../components/CertificateCard";
 import Gallery from "../components/Gallery";
 import profileImage from "../assets/DoGiaHuy.png";
@@ -29,49 +28,6 @@ const About = () => {
     { id: "skills", label: "Skills & Mindset", icon: LuLightbulb },
     { id: "personal", label: "Personal", icon: LuBookOpen },
     { id: "gallery", label: "My Gallery", icon: LuImage },
-  ];
-
-  const educationData = [
-    {
-      year: "2023 - Present",
-      degree: "Bachelor of Science in Artificial Intelligence",
-      school: "Swinburne University of Technology",
-      details:
-        "Focusing on machine learning, deep learning, and data analysis. Currently in Year 3.",
-    }
-  ];
-
-  const achievementsData = [
-    "Best Performance Award in COS10009 - Introduction to Programming",
-    "Best Performance Award in COS30017 - Software Development for Mobile Devices"
-  ];
-
-
-  const socialLinks = [
-    {
-      icon: FaGithub,
-      label: "GitHub",
-      url: "https://github.com",
-      color: "hover:text-gray-500 hover:border-gray-500",
-    },
-    {
-      icon: FaLinkedin,
-      label: "LinkedIn",
-      url: "https://linkedin.com",
-      color: "hover:text-blue-400 hover:border-blue-400",
-    },
-    {
-      icon: FaInstagram,
-      label: "Instagram",
-      url: "https://instagram.com",
-      color: "hover:text-pink-400 hover:border-pink-400",
-    },
-    {
-      icon: SiGmail,
-      label: "Email",
-      url: "mailto:your.email@gmail.com",
-      color: "hover:text-red-400 hover:border-red-400",
-    },
   ];
 
   return (
@@ -296,7 +252,7 @@ const About = () => {
                     Learning Philosophy
                   </h5>
                   <p className="text-sm">
-                    I learn by building and testing, and I use a journal to stay organized and weigh my options.
+                    I learn through hands-on builds and testing, using a Notion-based second brain to document insights and analyze trade-offs.
                   </p>
                 </div>
                 <div className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) transition-colors">

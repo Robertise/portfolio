@@ -1,26 +1,18 @@
-import { LuBrain, LuCode, LuWrench } from "react-icons/lu";
+import { LuZap, LuBookOpen } from "react-icons/lu";
+import { skillCategories } from "../data/skillsData";
 
-const Skills = () => {
-  const skillCategories = [
-    {
-      icon: <LuBrain className="w-6 h-6 text-green-500" />,
-      title: "Machine Learning",
-      subtitle: "Deep Learning & AI",
-      skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "OpenCV"],
-    },
-    {
-      icon: <LuCode className="w-6 h-6 text-purple-500" />,
-      title: "Languages",
-      subtitle: "Programming & Scripting",
-      skills: ["Python", "C++", "SQL", "JavaScript"],
-    },
-    {
-      icon: <LuWrench className="w-6 h-6 text-yellow-500" />,
-      title: "Tools & Cloud",
-      subtitle: "DevOps & Infrastructure",
-      skills: ["Git & GitHub", "Docker", "AWS (EC2, S3)", "Jupyter"],
-    },
-  ];
+const Skills = () => { 
+  const SkillBadge = ({ skill, variant }) => {
+    const base =
+      "px-3 py-1 md:text-sm text-xs font-medium rounded-md border transition-all duration-200 ";
+    const styles = {
+      proficient:
+        "bg-(--bg-primary) text-(--accent) border-(--border-color) hover:border-(--accent)",
+      learning:
+        "bg-transparent text-(--text-secondary) border-dashed border-(--border-color) hover:border-(--accent) hover:text-(--accent)",
+    };
+    return <span className={base + styles[variant]}>{skill}</span>;
+  };
 
   return (
     <section className="py-12 sm:py-20 md:py-28 px-4 sm:px-6">
@@ -43,6 +35,7 @@ const Skills = () => {
               key={index}
               className="bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) hover:shadow-lg transition-all duration-300"
             >
+              {/* Card Header */}
               <div className="flex items-start gap-4 mb-6">
                 <div className="p-2 rounded-md bg-(--hover-bg)">
                   {category.icon}
@@ -57,15 +50,37 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-3 py-1 bg-(--bg-primary) text-(--accent) md:text-sm text-xs font-medium rounded-md border border-(--border-color) hover:border-(--accent) hover:text-(--accent) transition-all duration-200"
-                  >
-                    {skill}
+              {/* Proficient */}
+              <div className="mb-4">
+                <div className="flex items-center gap-1.5 mb-2.5">
+                  <LuZap className="w-3.5 h-3.5 text-(--accent)" />
+                  <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-(--accent)">
+                    Proficient
                   </span>
-                ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.proficient.map((skill, i) => (
+                    <SkillBadge key={i} skill={skill} variant="proficient" />
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-dashed border-(--border-color) my-4" />
+
+              {/* Learning */}
+              <div>
+                <div className="flex items-center gap-1.5 mb-2.5">
+                  <LuBookOpen className="w-3.5 h-3.5 text-(--text-secondary)" />
+                  <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-(--text-secondary)">
+                    Still Learning
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.learning.map((skill, i) => (
+                    <SkillBadge key={i} skill={skill} variant="learning"/>
+                  ))} 
+                </div>
               </div>
             </div>
           ))}

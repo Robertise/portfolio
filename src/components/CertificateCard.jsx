@@ -30,23 +30,20 @@ const CertificateCard = ({ cert }) => {
             />
           </div>
 
-          <span className="absolute top-2 right-2 text-[10px] font-medium text-white bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">
+          <span className="absolute top-2 right-2 text-xs font-medium text-white bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">
             {cert.receivedDate}
           </span>
 
           <div className="flex flex-col flex-1 p-4 gap-1">
-            <p className="text-[10px] font-semibold text-(--accent) uppercase tracking-wide truncate">
+            <p className="md:text-sm text-xs font-semibold text-(--accent) uppercase tracking-wide truncate">
               {cert.issuer}
             </p>
-            <h3 className="text-sm font-bold text-(--text-primary) leading-snug line-clamp-2">
+            <h3 className="md:text-sm text-xs font-bold text-(--text-primary) leading-snug line-clamp-2">
               {cert.title}
-            </h3>
-            <p className="text-xs text-(--text-secondary) line-clamp-2 mt-0.5">
-              {cert.description}
-            </p>
+            </h3> 
           </div>
 
-          <div className="px-4 pb-3 flex items-center gap-1 text-[10px] text-(--text-secondary) opacity-60">
+          <div className="px-4 pb-3 flex items-center gap-1 text-xs text-(--text-secondary) opacity-60">
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
@@ -63,20 +60,20 @@ const CertificateCard = ({ cert }) => {
           }}
         >
           <div>
-            <p className="text-[10px] font-semibold text-(--accent) uppercase tracking-wide mb-1">
+            <p className="md:text-sm text-xs font-semibold text-(--accent) uppercase tracking-wide mb-1">
               {cert.issuer}
             </p>
-            <h3 className="text-sm font-bold text-(--text-primary) leading-snug mb-3">
+            <h3 className="md:text-sm text-xs font-bold text-(--text-primary) leading-snug mb-3">
               {cert.title}
             </h3>
             <div className="h-px bg-(--border-color) mb-3"></div>
-            <p className="text-xs text-(--text-secondary) leading-relaxed">
+            <p className="md:text-sm text-xs text-(--text-secondary) leading-relaxed">
               {cert.description}
             </p>
           </div>
 
           <div className="mt-auto flex items-center justify-between">
-            <span className="text-[10px] text-(--text-secondary) font-medium">
+            <span className="text-xs text-(--text-secondary) font-medium">
               {cert.receivedDate}
             </span>
             <a

@@ -1,3 +1,5 @@
+import { FaAward, FaRocket, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
 import introNetwork from "../assets/intro_to_network.png";
 import switchingRouting from "../assets/switching_routing_wireless.png";
 import pythonCourse from "../assets/learn_python3.png";
@@ -19,7 +21,7 @@ export const certificatesData = [
     issuer: "CCNA (Cisco Certified Network Associate)",
     url: "https://www.netacad.com/certificates/?issuanceId=41e19311-4e5a-4755-b6ad-9f15c02b3299",
     receivedDate: "Jan 2025",
-    description: "Learned how to configure switches and routers, implement VLANs, and manage wireless network infrastructure.",
+    description: "Configured network hardware (routers/switches), VLANs, and wireless infrastructure.",
     image: switchingRouting,
   },
   {
@@ -54,4 +56,46 @@ export const certificatesData = [
     description: "Applied Python to design and build conversational chatbots, covering NLP basics, intent recognition, and dialog flow.",
     image: chatbotCourse,
   }
+];
+
+export const educationData = [
+  {
+    year: "2023 - Present",
+    degree: "Bachelor of Science in Artificial Intelligence",
+    school: "Swinburne University of Technology",
+    details:
+      "Focusing on machine learning, deep learning, and data analysis. Currently in Year 3.",
+  }
+];
+
+export const achievementsData = [
+  "Best Performance Award in COS10009 - Introduction to Programming",
+  "Best Performance Award in COS30017 - Software Development for Mobile Devices"
+];
+
+export const socialLinks = [
+  {
+    icon: FaGithub,
+    label: "GitHub",
+    url: "https://github.com",
+    color: "hover:text-gray-500 hover:border-gray-500",
+  },
+  {
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    url: "https://linkedin.com",
+    color: "hover:text-blue-400 hover:border-blue-400",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    url: "https://instagram.com",
+    color: "hover:text-pink-400 hover:border-pink-400",
+  },
+  {
+    icon: SiGmail,
+    label: "Email",
+    url: "mailto:your.email@gmail.com",
+    color: "hover:text-red-400 hover:border-red-400",
+  },
 ];
