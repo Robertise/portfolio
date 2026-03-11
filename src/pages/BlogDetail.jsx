@@ -31,7 +31,7 @@ const BlogDetail = () => {
 
         // Load blog content from markdown file
         try {
-          const response = await fetch(`/blog-content/${slug}.md`);
+          const response = await fetch(`${import.meta.env.BASE_URL}blog-content/${slug}.md`);
           if (response.ok) {
             const mdContent = await response.text();
             setContent(mdContent);
@@ -73,7 +73,7 @@ const BlogDetail = () => {
     if (blog?.document_url) {
       const link = document.createElement("a");
       link.href = blog.document_url;
-      link.download = `${blog.slug}.pdf`;
+      link.download = `${import.meta.env.BASE_URL}blog-document/${blog.slug}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

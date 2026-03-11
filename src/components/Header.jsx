@@ -74,7 +74,7 @@ const Header = () => {
 
             {/* CV Button */}
             <a
-              href="./CV.pdf"
+              href={`${import.meta.env.BASE_URL}CV.pdf`}
               download="Do Gia Huy.pdf"
               className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-md hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap"
             >
