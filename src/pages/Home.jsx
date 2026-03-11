@@ -3,8 +3,21 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import About from "./About";
 import Blogs from "./Blogs";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollToBlogs) {
+      const blogsSection = document.getElementById("blogs");
+      if (blogsSection) {
+        blogsSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="relative z-10">
       <section id="home" className="scroll-mt-25">

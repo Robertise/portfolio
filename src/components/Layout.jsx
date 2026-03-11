@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Background from "../components/Background";
 import Header from "./Header";
@@ -7,10 +8,30 @@ import Intro from "./Intro";
 import ScrollSpy from "./ScrollSpy";
 import Home from "../pages/Home";
 
+let introSeenThisSession = false;
+
 const LayoutContent = () => {
-  const [showIntro, setShowIntro] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const skipIntro = Boolean(location.state?.skipIntro);
+
+  const [showIntro, setShowIntro] = useState(() => {
+    return !skipIntro && !introSeenThisSession;
+  });
+
+  useEffect(() => {
+    if (skipIntro) {
+      introSeenThisSession = true;
+      setShowIntro(false);
+      navigate(location.pathname, { replace: true, state: {} });
+      return;
+    }
+
+    setShowIntro(!introSeenThisSession);
+  }, [skipIntro, navigate, location.pathname]);
 
   const handleAnimationComplete = () => {
+    introSeenThisSession = true;
     setTimeout(() => {
       setShowIntro(false);
     }, 500);

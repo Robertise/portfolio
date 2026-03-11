@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="relative h-130 cursor-pointer"
+      className="relative h-110 md:h-130 cursor-pointer"
       style={{ perspective: "1000px" }}
       onClick={() => setFlipped(!flipped)}
     >

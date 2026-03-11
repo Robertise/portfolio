@@ -44,12 +44,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 md:ml-7 lg:ml-20">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 md:ml-7 lg:ml-18">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.target)}
-                className="px-3 py-2 text-xs lg:text-sm font-medium text-(--text-primary) hover:text-(--accent) transition-colors duration-200 hover:bg-(--hover-bg) rounded-md whitespace-nowrap"
+                className="px-3 py-2 text-xs md:text-sm lg:text-base font-medium text-(--text-primary) hover:text-(--accent) transition-colors duration-200 hover:bg-(--hover-bg) rounded-md whitespace-nowrap"
               >
                 {item.name}
               </button>
@@ -72,14 +72,14 @@ const Header = () => {
               )}
             </button>
 
-            {/* Resume Button */}
+            {/* CV Button */}
             <a
               href="./CV.pdf"
               download="Do Gia Huy.pdf"
               className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-md hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap"
             >
               <LuDownload className="h-3 sm:h-4 w-3 sm:w-4" />
-              <span className="hidden lg:inline pr-1">Resume</span>
+              <span className="hidden lg:inline pr-1">CV</span>
             </a>
 
             {/* Mobile Menu Toggle */}

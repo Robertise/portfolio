@@ -1,11 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { LuExternalLink } from "react-icons/lu";
 import { blogs } from "../data/blogs";
 
-const Blogs = () => { 
-  const handleBlogClick = (url) => {
-    if (url !== "#") {
-      window.open(url, "_blank");
-    }
+const Blogs = () => {
+  const navigate = useNavigate();
+
+  const handleBlogClick = (slug) => {
+    navigate(`/blogs/${slug}`);
   };
 
   return (
@@ -27,7 +28,7 @@ const Blogs = () => {
           {blogs.map((blog, index) => (
             <div
               key={index}
-              onClick={() => handleBlogClick(blog.url)}
+              onClick={() => handleBlogClick(blog.slug)}
               className="bg-(--card-background) border border-(--border-color) rounded-lg overflow-hidden hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer group"
             >
               <div className="grid md:grid-cols-4 gap-4 md:gap-6 p-4 md:p-5">
