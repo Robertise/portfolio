@@ -6,15 +6,18 @@ import {
   LuImage,
   LuGraduationCap,
   LuTrophy,
-  LuFileCheck,
+  LuFileCheck
 } from "react-icons/lu";
 import { FaAward, FaRocket, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa6";
-import { TbTools, TbBrandX } from "react-icons/tb";
+import { TbTools } from "react-icons/tb";
 import { PiStrategyBold } from "react-icons/pi";
 import { BiErrorAlt, BiBookBookmark } from "react-icons/bi";
 import { SiGmail } from "react-icons/si";
+import { certificatesData } from "../data/aboutData";
+import CertificateCard from "../components/CertificateCard";
 import Gallery from "../components/Gallery";
 import profileImage from "../assets/DoGiaHuy.png";
+
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -39,40 +42,10 @@ const About = () => {
   ];
 
   const achievementsData = [
-    "Dean's List - Academic Excellence (2023, 2024)",
-    "First Prize in AI Project Competition (2023)",
-    "Completed 5+ Personal AI & ML Projects",
-    "Active Open Source Contributor",
-    "Strong Foundation in Deep Learning & Reinforcement Learning",
-    "Proficient in Python, PyTorch, and TensorFlow",
+    "Best Performance Award in COS10009 - Introduction to Programming",
+    "Best Performance Award in COS30017 - Software Development for Mobile Devices"
   ];
 
-  const certificatesData = [
-    {
-      title: "Deep Learning Specialization",
-      issuer: "Coursera (Andrew Ng)",
-      url: "https://www.coursera.org",
-      receivedDate: "Dec 2023",
-    },
-    {
-      title: "Machine Learning Engineering for Production",
-      issuer: "Coursera",
-      url: "https://www.coursera.org",
-      receivedDate: "Jan 2024",
-    },
-    {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      url: "https://aws.amazon.com",
-      receivedDate: "Mar 2024",
-    },
-    {
-      title: "The Complete Python Bootcamp",
-      issuer: "Udemy",
-      url: "https://www.udemy.com",
-      receivedDate: "Jun 2023",
-    },
-  ];
 
   const socialLinks = [
     {
@@ -266,10 +239,10 @@ const About = () => {
                 {achievementsData.map((achievement, index) => (
                   <div
                     key={index}
-                    className="group bg-(--card-background) border border-(--border-color) rounded-lg p-6 hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+                    className="group bg-(--card-background) border border-(--border-color) rounded-lg p-5 hover:border-(--accent) hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
                   >
-                    <div className="flex items-start gap-3">
-                      <LuTrophy className="w-6 h-6 text-(--accent) flex-shrink-0 mt-1" />
+                    <div className="flex items-center gap-3">
+                      <LuTrophy className="w-6 h-6 text-yellow-600 shrink-0" />
                       <p className="text-(--text-primary) font-medium group-hover:text-(--accent) transition-colors">
                         {achievement}
                       </p>
@@ -286,49 +259,9 @@ const About = () => {
               <h2 className="text-2xl md:text-3xl font-semibold text-(--text-primary) whitespace-nowrap mb-8">
                 Professional Certificates
               </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {certificatesData.map((cert, index) => (
-                  <a
-                    key={index}
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative bg-(--card-background) border border-(--border-color) rounded-lg p-4 hover:border-(--accent) hover:shadow-lg transition-all duration-300 flex flex-col"
-                  >
-                    <div className="absolute top-3 right-3 bg-(--accent) text-white text-xs font-semibold px-2 py-1 rounded-md">
-                      {cert.receivedDate}
-                    </div>
-
-                    <div className="pr-20 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-(--border-color) flex items-center justify-center mb-3 group-hover:bg-(--accent) transition-colors">
-                        <LuFileCheck className="w-5 h-5 text-(--accent) group-hover:text-white" />
-                      </div>
-                      <h3 className="text-base font-semibold text-(--text-primary) group-hover:text-(--accent) transition-colors line-clamp-2 mb-2">
-                        {cert.title}
-                      </h3>
-                      <p className="text-xs text-(--text-secondary) line-clamp-2">
-                        {cert.issuer}
-                      </p>
-                    </div>
-
-                    <div className="mt-auto pt-3 border-t border-(--border-color) flex items-center gap-1 text-(--accent) text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>View Certificate</span>
-                      <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </div>
-                  </a>
+                  <CertificateCard key={index} cert={cert} />
                 ))}
               </div>
             </div>

@@ -43,7 +43,7 @@ const Background = () => {
   }, []);
 
   // Adaptive grid color based on theme
-  const gridColor = isDark ? "#e0e0e015" : "#74747430";
+  const gridColor = isDark ? "#e0e0e025" : "#52525240";
 
   return (
     <>

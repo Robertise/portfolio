@@ -73,10 +73,14 @@ const Header = () => {
             </button>
 
             {/* Resume Button */}
-            <button className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-md hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap">
+            <a
+              href="./CV.pdf"
+              download="Do Gia Huy.pdf"
+              className="hidden sm:flex bg-(--primary) text-white text-xs lg:text-sm px-3 lg:px-4 py-2 rounded-md hover:opacity-90 transition-opacity duration-200 items-center gap-2 whitespace-nowrap"
+            >
               <LuDownload className="h-3 sm:h-4 w-3 sm:w-4" />
               <span className="hidden lg:inline pr-1">Resume</span>
-            </button>
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button

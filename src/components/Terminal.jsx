@@ -52,7 +52,7 @@ export default function Terminal() {
               <FaArrowRightLong
                 color="#27c93f"
                 size={12}
-                className="flex-shrink-0"
+                className="shrink-0"
               />
               <p className="text-(--text-secondary) font-mono text-xs sm:text-sm md:text-base">
                 <span className="text-(--accent)">~</span> cat mission.txt
@@ -70,12 +70,12 @@ export default function Terminal() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-2 sm:gap-3 pt-4">
-            <button className="bg-(--primary) hover:opacity-90 active:opacity-80 text-white font-medium text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg transition-all duration-200">
+            <a href="#projects" className="bg-(--primary) hover:opacity-90 active:opacity-80 text-white font-medium text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg transition-all duration-200">
               View Projects ➔
-            </button>
-            <button className="border border-(--border-color) hover:bg-(--hover-bg) text-(--text-primary) font-medium text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg transition-colors duration-200">
+            </a>
+            <a href="mailto:giahuydo705@gmail.com" className="border border-(--border-color) hover:bg-(--hover-bg) text-(--text-primary) font-medium text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg transition-colors duration-200">
               Contact Me
-            </button>
+            </a>
           </div>
         </div>
 
