@@ -1,14 +1,7 @@
 # Dependencies
 node_modules/
 /.pnp
-.pnp.js
-
-# Production builds
-dist/
-dist-ssr/
-build/
-.env.local
-.env.*.local
+.pnp.js 
 
 # Development environment
 .env
