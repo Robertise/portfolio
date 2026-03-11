@@ -70,10 +70,13 @@ const BlogDetail = () => {
   };
 
   const handleDownload = () => {
-    if (blog?.document_url) {
+    if (blog?.slug) {
+      const fileUrl = `${import.meta.env.BASE_URL}blog-document/${blog.slug}.pdf`;
+
       const link = document.createElement("a");
-      link.href = blog.document_url;
-      link.download = `${import.meta.env.BASE_URL}blog-document/${blog.slug}.pdf`;
+      link.href = fileUrl;
+      link.download = `${blog.slug}.pdf`;
+
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
