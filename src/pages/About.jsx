@@ -87,7 +87,7 @@ const About = () => {
                   AI Student at{" "}
                   <span className="text-red-500">Swinburne University</span>
                 </h2>
-                <p>
+                <p className="text-(--text-secondary) text-sm md:text-base">
                   I'm a passionate AI student based in Ho Chi Minh City,
                   Vietnam. With a strong foundation in machine learning and data
                   analysis, I am dedicated to building intelligent systems that
@@ -123,7 +123,7 @@ const About = () => {
                     <p className="text-(--text-primary) mb-2">
                       AI Student at Swinburne University
                     </p>
-                    <p className="text-(--text-secondary) text-sm">
+                    <p className="text-(--text-secondary) text-xs md:text-sm">
                       Currently in my third year, focusing on building a strong
                       foundation in artificial intelligence while applying
                       concepts through coursework and personal projects.
@@ -137,7 +137,7 @@ const About = () => {
                     <p className="text-(--text-primary) mb-2">
                       Seeking AI-Focused Roles
                     </p>
-                    <p className="text-(--text-secondary) text-sm">
+                    <p className="text-(--text-secondary) text-xs md:text-sm">
                       Looking for internship or entry-level opportunities where
                       I can learn from real-world systems, grow my technical
                       skills, and contribute to meaningful AI-driven solutions.

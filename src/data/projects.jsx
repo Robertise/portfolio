@@ -1,32 +1,77 @@
 export const projects = [
   {
-    title: "Neural Network for Image Recognition",
+    title: "Traffic-Based Route Guidance System",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=400&fit=crop",
+      "https://res.cloudinary.com/dn5errmkv/image/upload/v1773218053/route-based_tkumpo.jpg",
+    type: "Team",
+    roleName: "Leader",
     problem:
-      "Detection of anomalies in high-resolution X-ray scans was yielding low accuracy (72%) with traditional CV methods, leading to false negatives in critical diagnoses.",
+      "Traditional route planning methods often fail to consider dynamic traffic conditions, leading to inefficient navigation and longer travel times.",
     solution:
-      "Designed and implemented a custom CNN architecture with residual blocks. Utilized data augmentation to balance the dataset, improving validation accuracy to 87% (+15% baseline).",
-    tags: ["Python", "Keras", "OpenCV", "NumPy"],
+      "Developed a route guidance system combining the IDA* search algorithm with machine learning models (LSTM and GRU) to analyze traffic patterns and predict optimal routes. The system evaluates multiple paths while minimizing travel cost and congestion impact.",
+    duration: "Jan 2026 - Present",
+    codeUrl: "",
+    liveUrl: "",
+    tags: ["Python", "Machine Learning", "LSTM", "GRU", "Search Algorithms"],
   },
   {
-    title: "Sentiment Analysis Trading Bot",
+    title: "LLM-Based Cybersecurity Log Analyzer",
     image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&h=400&fit=crop",
+      "https://res.cloudinary.com/dn5errmkv/image/upload/v1773218053/cybersecurity_ohdisq.jpg",
+    type: "Team",
+    roleName: "Project Coordinator",
     problem:
-      "Manual analysis of financial news sentiment is too slow for high-frequency trading decisions, missing critical market entry points.",
+      "Security analysts must manually review large volumes of system logs to identify threats, which is time-consuming and prone to missing subtle indicators of compromise.",
     solution:
-      "Built an NLP pipeline processing 1k+ news headlines/sec using BERT. Achieved 90% sentiment classification accuracy and integrated signals with a trading API.",
-    tags: ["Python", "PyTorch", "Hugging Face", "Redis"],
+      "Built an AI-assisted analysis tool using Retrieval-Augmented Generation (RAG) to interpret system log entries and map them to cybersecurity techniques. The system retrieves relevant threat intelligence and generates contextual explanations to assist analysts.",
+    duration: "Jan 2026 - Present",
+    codeUrl: "",
+    liveUrl: "",
+    tags: ["Python", "LLM", "RAG", "Cybersecurity", "NLP"],
   },
   {
-    title: "Autonomous Drone Navigation Sim",
+    title: "Mobile Task Management Application",
     image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=500&h=400&fit=crop",
+      "https://res.cloudinary.com/dn5errmkv/image/upload/v1773218404/mobile_ddkain.png",
+    type: "Individual",
+    roleName: "Designer & Developer",
     problem:
-      "Simulated drones struggled to navigate complex indoor environments without GPS, resulting in frequent collisions during pathfinding.",
+      "Online shoppers require a convenient mobile platform to browse products, manage purchases, and track orders without relying on desktop-based systems.",
     solution:
-      "Implemented SLAM (Simultaneous Localization and Mapping) combined with A* pathfinding. Optimized C++ codebase to run collision detection in real-time (60fps).",
-    tags: ["C++", "ROS 2", "Gazebo"],
+      "Developed a full-featured Android e-commerce application enabling users to browse products, manage shopping carts, complete purchases, track orders, and manage user accounts through a mobile interface. Implemented structured navigation and responsive UI components to support a smooth shopping workflow.",
+    duration: "Oct 2025 - Dec 2025",
+    codeUrl: "https://github.com/COS30017-SoftwareDevForMobileDevices/Swinburne-E-Commerce-Mobile-Application.git",
+    liveUrl: "https://drive.google.com/file/d/14VL3AK5S-GJPiFwXS0dN1kGb2GIxtLSs/view?usp=sharing",
+    tags: ["Android", "Mobile Development", ".NET", "Kotlin", "Git Release", "UI Design"],
+  },
+  {
+    title: "Smart Home Monitoring Dashboard",
+    image:
+      "https://res.cloudinary.com/dn5errmkv/image/upload/v1773218053/smarthome_pg78hy.jpg",
+    type: "Team",
+    roleName: "Full-Stack Developer & Database Designer",
+    problem:
+      "Smart home devices generate large volumes of sensor data, but users often lack a centralized platform to monitor environmental conditions and device status in real time.",
+    solution:
+      "Developed a smart home monitoring system with a Node.js backend and web dashboard. Integrated multiple sensor data sources through a unified API and implemented periodic database updates to visualize temperature, humidity, and device activity in real time.",
+    duration: "May 2025 - Aug 2025",
+    codeUrl: "https://github.com/Robertise/Smart-Home-Management-System.git",
+    liveUrl: "",
+    tags: ["React", "Node.js", "JavaScript", "REST API", "PostgreSQL", "Web Dashboard"],
+  },
+  {
+    title: "Personal Portfolio Website",
+    image:
+      "https://res.cloudinary.com/dn5errmkv/image/upload/v1773218054/portfolio_gswxxp.png",
+    type: "Individual",
+    roleName: "Designer & Developer",
+    problem:
+      "Developers need a professional platform to showcase projects, technical skills, and experience to recruiters and collaborators.",
+    solution:
+      "Designed and developed a responsive portfolio website to present technical projects, skills, and achievements. The site includes project showcases, structured skill sections, and links to GitHub repositories and professional profiles.",
+    duration: "Dec 2025 - March 2026",
+    codeUrl: "https://github.com/Robertise/Portfolio.git",
+    liveUrl: "",
+    tags: ["JavaScript", "React", "Frontend Development"],
   },
 ];

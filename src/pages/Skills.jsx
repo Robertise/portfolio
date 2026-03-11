@@ -1,5 +1,5 @@
 import { LuZap, LuBookOpen } from "react-icons/lu";
-import { skillCategories } from "../data/skillsData";
+import { skillCategories } from "../data/skills";
 
 const Skills = () => { 
   const SkillBadge = ({ skill, variant }) => {
@@ -41,7 +41,7 @@ const Skills = () => {
                   {category.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-(--text-primary)">
+                  <h3 className="text-lg md:text-xl font-semibold text-(--text-primary)">
                     {category.title}
                   </h3>
                   <p className="text-xs md:text-sm text-(--text-secondary) mt-0.5">
