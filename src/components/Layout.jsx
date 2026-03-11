@@ -30,6 +30,18 @@ const LayoutContent = () => {
     setShowIntro(!introSeenThisSession);
   }, [skipIntro, navigate, location.pathname]);
 
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+}, [showIntro]);
+
   const handleAnimationComplete = () => {
     introSeenThisSession = true;
     setTimeout(() => {
@@ -69,6 +81,7 @@ const LayoutContent = () => {
               alignItems: "center",
               background: "var(--bg-primary)",
               zIndex: 9999,
+              scrollBehavior: "none",
             }}
           >
             <Intro onComplete={handleAnimationComplete} />

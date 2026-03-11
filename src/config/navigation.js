@@ -7,6 +7,7 @@ export const NAV_ITEMS = [
   { id: 3, name: "Skills", target: "skills" },
   { id: 4, name: "Projects", target: "projects" },
   { id: 5, name: "Blogs", target: "blogs" },
+  { id: 6, name: "Contact", target: "contact" },
 ];
 
 /*

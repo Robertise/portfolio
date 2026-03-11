@@ -3,6 +3,7 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import About from "./About";
 import Blogs from "./Blogs";
+import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -38,6 +39,10 @@ const Home = () => {
 
       <section id="blogs">
         <Blogs />
+      </section>
+
+      <section id="contact">
+        <Footer />
       </section>
     </div>
   );

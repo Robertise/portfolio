@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, Fragment } from "react";
-import { LuArrowLeft, LuDownload, LuClock, LuUser, LuCalendar } from "react-icons/lu";
+import { LuArrowLeft, LuDownload, LuClock, LuUser, LuCalendar, LuArrowUp } from "react-icons/lu";
 import { getBlogBySlug } from "../utils/blogHelpers";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Header from "../components/Header";
@@ -53,6 +53,16 @@ const BlogDetail = () => {
 
     loadBlog();
   }, [slug]);
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   // Navigate back to home and scroll to blogs section
   const handleBackToBlogs = () => {
@@ -115,7 +125,7 @@ const BlogDetail = () => {
     <ThemeProvider>
       <>
         <Header />
-        <section className="mt-25">
+        <section className="mt-25 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Back Button */}
           <button
@@ -228,6 +238,16 @@ const BlogDetail = () => {
         </article>
       </div>
     </section>
+        {/* Scroll to Top Button */}
+        <button
+          onClick={scrollToTop}
+          className={`fixed bottom-8 right-8 z-50 w-11 h-11 rounded-full border border-(--accent) bg-(--card-background) text-(--accent) flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-(--accent) hover:text-white hover:scale-110 ${
+            showScrollTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
+          }`}
+          aria-label="Scroll to top"
+        >
+          <LuArrowUp className="w-4 h-4" />
+        </button>
       </>
     </ThemeProvider>
   );

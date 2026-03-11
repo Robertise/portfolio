@@ -77,13 +77,13 @@ export const socialLinks = [
   {
     icon: FaGithub,
     label: "GitHub",
-    url: "https://github.com",
+    url: "https://github.com/Robertise",
     color: "hover:text-gray-500 hover:border-gray-500",
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/do-huy-294353354/",
     color: "hover:text-blue-400 hover:border-blue-400",
   },
   {
@@ -95,7 +95,7 @@ export const socialLinks = [
   {
     icon: SiGmail,
     label: "Email",
-    url: "mailto:your.email@gmail.com",
+    url: "mailto:giahuydo705@gmail.com",
     color: "hover:text-red-400 hover:border-red-400",
   },
 ];
