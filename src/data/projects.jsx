@@ -71,7 +71,7 @@ export const projects = [
       "Designed and developed a responsive portfolio website to present technical projects, skills, and achievements. The site includes project showcases, structured skill sections, and links to GitHub repositories and professional profiles.",
     duration: "Dec 2025 - March 2026",
     codeUrl: "https://github.com/Robertise/Portfolio.git",
-    liveUrl: "",
+    liveUrl: "https://robertise.github.io/portfolio",
     tags: ["JavaScript", "React", "Frontend Development"],
   },
 ];

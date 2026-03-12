@@ -41,7 +41,7 @@ const Home = () => {
         <Blogs />
       </section>
 
-      <section id="contact">
+      <section>
         <Footer />
       </section>
     </div>

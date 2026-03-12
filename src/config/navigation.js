@@ -6,8 +6,7 @@ export const NAV_ITEMS = [
   { id: 2, name: "About", target: "about" },
   { id: 3, name: "Skills", target: "skills" },
   { id: 4, name: "Projects", target: "projects" },
-  { id: 5, name: "Blogs", target: "blogs" },
-  { id: 6, name: "Contact", target: "contact" },
+  { id: 5, name: "Blogs", target: "blogs" }
 ];
 
 /*
@@ -15,5 +14,5 @@ export const NAV_ITEMS = [
 */
 export const SCROLL_CONFIG = {
   behavior: "smooth",
-  paddingTop: 64, // Header height in pixels
+  paddingTop: 64, 
 };
