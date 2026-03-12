@@ -80,7 +80,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full py-20 px-4 sm:px-6 lg:px-8 border-t border-(--border-color) bg-(--bg-primary) text-(--text-primary) transition-colors duration-300">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Get In Touch Section */}
         <motion.div
           className="mb-16"
